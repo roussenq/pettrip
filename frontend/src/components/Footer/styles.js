@@ -6,7 +6,6 @@ export const SectionFooter = styled(Box)`
   height: 100px;
   bottom: 0;
   width: 100%;
-  position: absolute;
 `;
 
 export const BoxText = styled(Typography)`
