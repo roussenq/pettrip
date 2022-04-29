@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import java.util.Objects;
 
@@ -21,8 +22,10 @@ public class Address {
     private String street;
 
     @NotBlank
+    @Size(max = 10)
     private String number;
 
+    @Size(max = 18)
     private String complement;
 
     @NotBlank
@@ -35,6 +38,7 @@ public class Address {
 
     @NotBlank
     @Column(name = "zip_code")
+    @Size(max = 8)
     private String zipCode;
 
 
