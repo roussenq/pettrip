@@ -67,6 +67,7 @@ export const BoxImage = styled(Box)`
   @media (max-width: 850px) {
     img {
       width: 90px;
+      margin-top: 10px;
     }
   }
 `;
@@ -79,8 +80,6 @@ export const BoxHotelDescritions = styled(Box)`
   height: 100%;
   padding-left: 10px;
 `;
-
-export const BoxInformation = styled(Box)``;
 
 export const Name = styled(Typography)`
   font-size: 15px;
@@ -140,7 +139,7 @@ export const Address = styled(Typography)`
   }
 `;
 export const Contact = styled(Typography)`
-  font-size: 10px;
+  font-size: 7px;
   font-weight: 600;
   color: #585757;
 
