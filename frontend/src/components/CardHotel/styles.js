@@ -78,7 +78,6 @@ export const BoxHotelDescritions = styled(Box)`
   justify-content: space-around;
   width: 80%;
   height: 100%;
-  padding-left: 10px;
 `;
 
 export const Name = styled(Typography)`
