@@ -48,11 +48,6 @@ export const CardBox = styled(Box)`
   height: 170px;
   font-family: "Montserrat Alternates", sans-serif;
 
-  @media (max-width: 280px) {
-    flex-direction: column;
-    height: 220px;
-  }
-
   @media (max-width: 850px) {
     flex-direction: column;
     height: 220px;
@@ -67,6 +62,7 @@ export const BoxImage = styled(Box)`
   @media (max-width: 850px) {
     img {
       width: 90px;
+      margin-top: 10px;
     }
   }
 `;
@@ -77,10 +73,7 @@ export const BoxHotelDescritions = styled(Box)`
   justify-content: space-around;
   width: 80%;
   height: 100%;
-  padding-left: 10px;
 `;
-
-export const BoxInformation = styled(Box)``;
 
 export const Name = styled(Typography)`
   font-size: 15px;
@@ -140,7 +133,7 @@ export const Address = styled(Typography)`
   }
 `;
 export const Contact = styled(Typography)`
-  font-size: 10px;
+  font-size: 7px;
   font-weight: 600;
   color: #585757;
 

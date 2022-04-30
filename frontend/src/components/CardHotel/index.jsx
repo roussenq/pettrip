@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "@mui/material";
 import {
   TextCity,
@@ -6,7 +6,6 @@ import {
   CardBox,
   BoxImage,
   BoxHotelDescritions,
-  BoxInformation,
   Name,
   Description,
   BoxContact,
@@ -36,10 +35,8 @@ const CardHotel = () => {
                     <img src={hotel.image} alt="Imagem do Hotel" />
                   </BoxImage>
                   <BoxHotelDescritions>
-                    <BoxInformation>
-                      <Name>{hotel.name}</Name>
-                      <Description>{hotel.description}</Description>
-                    </BoxInformation>
+                    <Name>{hotel.name}</Name>
+                    <Description>{hotel.description}</Description>
                     <BoxContact>
                       <Address>
                         {hotel.address.street}, nº {hotel.address.number}, {""}
