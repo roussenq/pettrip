@@ -9,7 +9,6 @@ export const AppBarContainer = styled(AppBar)`
 export const BoxBar = styled(Toolbar)`
   display: flex;
   justify-content: space-between;
-  margin: 14px 0;
 
   @media (max-width: 400px) {
     flex-direction: column;

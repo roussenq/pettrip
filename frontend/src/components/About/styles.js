@@ -78,6 +78,6 @@ export const ContainerBar = styled(Box)`
     align-items: center;
     height: 90px;
     padding: 15px 0px;
-    margin: 10px; 18px;
+    margin-top: 10px;
   }
 `;

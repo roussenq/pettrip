@@ -5,7 +5,7 @@ export const SectionMain = styled(Box)`
   padding: 20px;
 
   @media (max-width: 600px) {
-    padding-top: 20px;
+    padding-top: 10px;
   }
 `;
 

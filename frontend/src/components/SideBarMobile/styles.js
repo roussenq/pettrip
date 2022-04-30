@@ -3,7 +3,7 @@ import { Box, Typography, styled, Button } from "@mui/material";
 export const BoxButtonFilter = styled(Box)`
   display: flex;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 `;
 
 export const ButtonMobile = styled(Button)`
