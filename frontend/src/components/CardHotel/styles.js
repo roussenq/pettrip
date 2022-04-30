@@ -134,7 +134,7 @@ export const Address = styled(Typography)`
   margin-right: 4px;
 
   @media (max-width: 690px) {
-    font-size: 8px;
+    font-size: 7px;
   }
 `;
 export const Contact = styled(Typography)`
