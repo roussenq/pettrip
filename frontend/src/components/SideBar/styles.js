@@ -101,4 +101,8 @@ export const ButtonSearch = styled(Button)`
     margin-left: 53px;
     margin-top: 19px;
   }
+
+  :hover {
+    background-color: #f47920;
+  }
 `;

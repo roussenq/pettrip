@@ -53,4 +53,8 @@ export const ButtonSearch = styled(Button)`
   color: #ffffff;
   font-size: 8px;
   margin-left: 35px;
+
+  :hover {
+    background-color: #f47920;
+  }
 `;
