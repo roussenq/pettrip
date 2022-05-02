@@ -1,6 +1,6 @@
 INSERT INTO tb_city(id, city, state) VALUES (1, 'Florianópolis', 'SC');
 INSERT INTO tb_city(id, city, state) VALUES (2, 'São José', 'SC');
-INSERT INTO tb_city(id, city, state) VALUES (3, 'Gramado', 'SC');
+INSERT INTO tb_city(id, city, state) VALUES (3, 'Gramado', 'RS');
 INSERT INTO tb_city(id, city, state) VALUES (4, 'Piracicaba', 'SP');
 INSERT INTO tb_city(id, city, state) VALUES (5, 'Palhoça', 'SC');
 INSERT INTO tb_city(id, city, state) VALUES (6, 'Cascavel', 'PR');
@@ -24,6 +24,7 @@ INSERT INTO tb_address(id, street, number, district, city_id, zip_code) VALUES (
 INSERT INTO tb_address(id, street, number, district, city_id, zip_code) VALUES (16, 'Rua Hotel', '456', 'Sul da Ilha', 1, '88222145');
 INSERT INTO tb_address(id, street, number, district, city_id, zip_code) VALUES (17, 'Rua Hotel', '456', 'Sul da Ilha', 1, '88222145');
 INSERT INTO tb_address(id, street, number, district, city_id, zip_code) VALUES (18, 'Rua Hotel', '456', 'Beira Mar', 1, '88222145');
+INSERT INTO tb_address(id, street, number, district, city_id, zip_code) VALUES (19, 'Rua dos inativos', '456', 'Beira Mar', 2, '88222145');
 
 
 INSERT INTO tb_establishment(id, cnpj, name, description, email, number_phone, status, created_at, address_id, image) VALUES (1, '11.222.333/0004-01', 'Pêlos e Patas Hotel', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s', 'hotel@email.com', '(48)99999-9999', 'ACTIVE', '2022-04-06 10:46:44', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG20tWVvTn7MblXOgY55mZleRcoDC2_08DD_GI8sjnpXSk0MhdcW0uZslAVPvmUh7NOSs&usqp=CAU');
@@ -44,6 +45,7 @@ INSERT INTO tb_establishment(id, cnpj, name, description, email, number_phone, s
 INSERT INTO tb_establishment(id, cnpj, name, description, email, number_phone, status, created_at, address_id, image) VALUES (16, '11.222.333/0004-16', 'Amor de pet Hotel', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s', 'hotel@email.com', '(48)99499-9999', 'ACTIVE', '2022-04-06 10:46:44', 16, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG20tWVvTn7MblXOgY55mZleRcoDC2_08DD_GI8sjnpXSk0MhdcW0uZslAVPvmUh7NOSs&usqp=CAU');
 INSERT INTO tb_establishment(id, cnpj, name, description, email, number_phone, status, created_at, address_id, image) VALUES (17, '11.222.333/0004-17', 'Hotel', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s', 'hotel@email.com', '(48)99999-9959', 'ACTIVE', '2022-04-06 10:46:44', 17, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG20tWVvTn7MblXOgY55mZleRcoDC2_08DD_GI8sjnpXSk0MhdcW0uZslAVPvmUh7NOSs&usqp=CAU');
 INSERT INTO tb_establishment(id, cnpj, name, description, email, number_phone, status, created_at, address_id, image) VALUES (18, '11.222.333/0004-18', 'Dog & Cat Feliz', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s', 'hotel@email.com', '(48)98899-9999', 'ACTIVE', '2022-04-06 10:46:44', 18, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG20tWVvTn7MblXOgY55mZleRcoDC2_08DD_GI8sjnpXSk0MhdcW0uZslAVPvmUh7NOSs&usqp=CAU');
+INSERT INTO tb_establishment(id, cnpj, name, description, email, number_phone, status, created_at, address_id, image) VALUES (19, '11.222.333/0004-19', 'HOTEL INATIVO', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s', 'hotel@email.com', '(48)98899-9999', 'ACTIVE', '2022-04-06 10:46:44', 19, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG20tWVvTn7MblXOgY55mZleRcoDC2_08DD_GI8sjnpXSk0MhdcW0uZslAVPvmUh7NOSs&usqp=CAU');
 
 
 INSERT INTO tb_filters(id, type, weight, castrated, gender) VALUES (1, 'dog', '5kg', 'uncastrated', 'male');
@@ -84,6 +86,7 @@ INSERT INTO tb_establishment_filters(establishment_id, filters_id) VALUES (17, 8
 INSERT INTO tb_establishment_filters(establishment_id, filters_id) VALUES (17, 1);
 INSERT INTO tb_establishment_filters(establishment_id, filters_id) VALUES (18, 1);
 INSERT INTO tb_establishment_filters(establishment_id, filters_id) VALUES (18, 2);
+INSERT INTO tb_establishment_filters(establishment_id, filters_id) VALUES (19, 1);
 
 
 

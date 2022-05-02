@@ -1,8 +1,9 @@
 package com.project.pettrip.service;
 
-import com.project.pettrip.model.City;
-import com.project.pettrip.repository.CityRepository;
-import com.project.pettrip.service.impl.CityServiceImpl;
+import com.project.pettrip.domain.model.City;
+import com.project.pettrip.domain.repository.CityRepository;
+import com.project.pettrip.domain.service.CityService;
+import com.project.pettrip.domain.service.impl.CityServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,8 +15,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
