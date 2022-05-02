@@ -1,13 +1,12 @@
 package com.project.pettrip.controller;
 
-import com.project.pettrip.model.City;
-import com.project.pettrip.service.CityService;
-import com.project.pettrip.service.EstablishmentService;
+import com.project.pettrip.domain.model.City;
+import com.project.pettrip.domain.service.CityService;
+import com.project.pettrip.domain.service.EstablishmentService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -20,7 +19,6 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.List;
-import java.util.Set;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
