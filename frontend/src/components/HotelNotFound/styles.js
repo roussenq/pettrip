@@ -5,7 +5,7 @@ export const SectionContainer = styled(Box)`
   background: url(${dogErro}) center center no-repeat;
   background-size: cover;
   max-width: 100%;
-  margin-left: 3px;
+  margin-left: 60px;
   border-radius: 9px;
 `;
 

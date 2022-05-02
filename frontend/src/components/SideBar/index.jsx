@@ -100,54 +100,54 @@ const SideBar = () => {
         <BoxLine />
         <TextSize>Seu pet encaixa em qual porte?</TextSize>
         <AnimalSize>
-          <label htmlFor="5kg">
+          <label htmlFor="tiny">
             <input
-              onClick={() => controlButtonWeight("five")}
+              onClick={() => controlButtonWeight("tiny")}
               type="radio"
               {...register("weight")}
-              value="5kg"
-              id="5kg"
+              value="tiny"
+              id="tiny"
             />
-            <BoxButton checked={checkedButtonWeight.five}>
+            <BoxButton checked={checkedButtonWeight.tiny}>
               <TextButton>Até 5kg</TextButton>
             </BoxButton>
           </label>
 
-          <label htmlFor="10kg">
+          <label htmlFor="small">
             <input
-              onClick={() => controlButtonWeight("ten")}
+              onClick={() => controlButtonWeight("small")}
               type="radio"
               {...register("weight")}
-              value="10kg"
-              id="10kg"
+              value="small"
+              id="small"
             />
-            <BoxButton checked={checkedButtonWeight.ten}>
+            <BoxButton checked={checkedButtonWeight.small}>
               <TextButton>até 10KG</TextButton>
             </BoxButton>
           </label>
 
-          <label htmlFor="15kg">
+          <label htmlFor="medium">
             <input
-              onClick={() => controlButtonWeight("fifteen")}
+              onClick={() => controlButtonWeight("medium")}
               type="radio"
               {...register("weight")}
-              value="15kg"
-              id="15kg"
+              value="medium"
+              id="medium"
             />
-            <BoxButton checked={checkedButtonWeight.fifteen}>
+            <BoxButton checked={checkedButtonWeight.medium}>
               <TextButton>até 15kg</TextButton>
             </BoxButton>
           </label>
 
-          <label htmlFor="20kg">
+          <label htmlFor="big">
             <input
-              onClick={() => controlButtonWeight("twenty")}
+              onClick={() => controlButtonWeight("big")}
               type="radio"
               {...register("weight")}
-              value="20kg"
-              id="20kg"
+              value="big"
+              id="big"
             />
-            <BoxButton checked={checkedButtonWeight.twenty}>
+            <BoxButton checked={checkedButtonWeight.big}>
               <TextButton>20kg ou +</TextButton>
             </BoxButton>
           </label>
