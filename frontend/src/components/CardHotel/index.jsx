@@ -23,7 +23,7 @@ const CardHotel = () => {
   } else {
     return (
       <CardContainer>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <TextCity>
             Hotéis em: <span>{city.label} </span>
           </TextCity>

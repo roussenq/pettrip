@@ -40,8 +40,8 @@ const Search = () => {
               <TextField
                 {...params}
                 placeholder="Para onde você está indo?"
-                color="warning"
                 variant="standard"
+                InputProps={{ ...params.InputProps, disableUnderline: true }}
               />
             )}
           />

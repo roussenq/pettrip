@@ -26,7 +26,7 @@ export const TextAbout = styled(Typography)`
   text-align: center;
   color: #373737;
   font-size: 14px;
-  padding: 0px 150px;
+  padding: 0px 190px;
   font-weight: 600;
   line-height: 28px;
 
@@ -63,21 +63,24 @@ export const QuestionAbout = styled(Typography)`
 
 export const ContainerBar = styled(Box)`
   background-color: #fffdfd;
-  height: 50px;
+  height: 38px;
   margin: auto;
   margin-top: 10px;
-  max-width: 560px;
-  border-radius: 10px;
+  max-width: 458px;
+  border-radius: 4px;
   box-shadow: 0px 0px 4px #00000057;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
 
-  @media (max-width: 450px) {
+  @media (max-width: 480px) {
     flex-direction: column;
     align-items: center;
     height: 90px;
     padding: 15px 0px;
-    margin: 10px 18px;
+    margin: 10px auto;
+    max-width: 280px;
+    justify-content: center;
+    border-radius: 6px;
+    margin-top: 10px;
   }
 `;

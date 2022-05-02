@@ -8,7 +8,7 @@ import CardHotel from "../CardHotel";
 const Main = () => {
   return (
     <SectionMain>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <SideBarMobile />
         <BoxMain>
           <SideBar />
@@ -20,5 +20,3 @@ const Main = () => {
 };
 
 export default Main;
-
-//npx json-server --watch db.json --port 5000

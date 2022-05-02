@@ -5,7 +5,7 @@ import { SectionContainer, BoxText, Text, TextDescription } from "./styles";
 const HotelNotFound = () => {
   return (
     <SectionContainer>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <BoxText>
           <Text>
             <span>Oops!</span>

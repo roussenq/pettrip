@@ -3,7 +3,7 @@ import { Box, styled, Typography } from "@mui/material";
 export const CardContainer = styled(Box)`
   background-color: #ffffff;
   width: 100%;
-  margin-left: 2px;
+  margin-left: 30px;
 
   ul {
     list-style: none;
@@ -40,13 +40,14 @@ export const TextCity = styled(Typography)`
 `;
 
 export const CardBox = styled(Box)`
+  font-family: "Montserrat Alternates", sans-serif;
   display: flex;
   align-items: center;
   background-color: #ffffff;
   border-top: 1px solid #e5e7eb;
   margin: 10px auto;
-  height: 170px;
-  font-family: "Montserrat Alternates", sans-serif;
+  height: 184px;
+  margin-right: 100px;
 
   @media (max-width: 280px) {
     flex-direction: column;
@@ -60,6 +61,7 @@ export const CardBox = styled(Box)`
 `;
 
 export const BoxImage = styled(Box)`
+  margin: 0px 40px;
   img {
     width: 150px;
   }
@@ -138,11 +140,11 @@ export const Address = styled(Typography)`
   }
 `;
 export const Contact = styled(Typography)`
-  font-size: 7px;
+  font-size: 9px;
   font-weight: 600;
   color: #585757;
 
-  @media (max-width: 62p0x) {
+  @media (max-width: 620px) {
     font-size: 8px;
   }
 `;

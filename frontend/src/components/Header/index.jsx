@@ -13,7 +13,7 @@ import {
 const Header = () => {
   return (
     <AppBarContainer position="relative">
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <BoxBar>
           <BoxLogo>
             <BoxImage>

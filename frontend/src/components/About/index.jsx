@@ -15,7 +15,7 @@ import {
 const About = () => {
   return (
     <AboutDescription>
-      <Container maxWidth="lg" style={{ paddingBottom: 25 }}>
+      <Container maxWidth="xl" style={{ paddingBottom: 25 }}>
         <DescriptionItems>
           <Title>Encontre o hotel ideal para o seu amigão</Title>
           <TextAbout>

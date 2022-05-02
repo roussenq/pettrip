@@ -5,7 +5,7 @@ import { SectionFooter, TextSenac, BoxText, TextStudents } from "./styles";
 const Footer = () => {
   return (
     <SectionFooter>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <BoxText>
           <TextSenac>Projeto TCS Senac Santa Catarina - Palhoça</TextSenac>
           <TextStudents>Desenvolvido por Jhony e Kamilla</TextStudents>
