@@ -42,7 +42,7 @@ export const InputAutocomplete = styled(Autocomplete)`
     & input {
       width: 150px;
       padding-left: 10px;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     & svg {
@@ -68,7 +68,7 @@ export const ButtonSearch = styled(Button)`
 
   @media (max-width: 480px) {
     border-radius: 4px;
-    margin-top: 10px;
+    margin-top: 18px;
     width: 69px;
     height: 30px;
   }

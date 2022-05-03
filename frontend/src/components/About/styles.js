@@ -62,7 +62,7 @@ export const QuestionAbout = styled(Typography)`
 `;
 
 export const ContainerBar = styled(Box)`
-  background-color: #fffdfd;
+  background-color: #fffdfdc4;
   height: 38px;
   margin: auto;
   margin-top: 15px;
@@ -75,10 +75,10 @@ export const ContainerBar = styled(Box)`
   @media (max-width: 480px) {
     flex-direction: column;
     align-items: center;
-    height: 90px;
+    height: 106px;
     margin: 20px auto 0 auto;
-    max-width: 280px;
+    max-width: 249px;
     justify-content: center;
-    border-radius: 6px;
+    border-radius: 10px;
   }
 `;

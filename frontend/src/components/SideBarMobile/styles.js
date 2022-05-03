@@ -7,7 +7,7 @@ export const BoxButtonFilter = styled(Box)`
 `;
 
 export const ButtonMobile = styled(Button)`
-  background-color: #f47920;
+  background-color: #28a0a7;
   color: #ffffff;
   font-size: 8px;
   display: none;
