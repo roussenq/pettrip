@@ -47,16 +47,16 @@ export const TypographyTitle = styled(Typography)`
 export const Subscribe = styled(Typography)`
   a {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     color: #f47920;
     font-family: "Montserrat Alternates", sans-serif;
   }
 
   @media (max-width: 400px) {
-    margin: 8px 0px 8px 0px;
+    margin: 14px 0px 8px 0px;
 
     a {
-      font-size: 10px;
+      font-size: 12px;
     }
   }
 `;
