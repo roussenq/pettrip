@@ -45,7 +45,7 @@ const CardHotel = () => {
                         {hotel.address.city.state}, CEP {hotel.address.zipCode}
                       </Address>
                       <Contact>
-                        {hotel.email} / {hotel.numberPhone}
+                        {hotel.email}, {hotel.numberPhone}
                       </Contact>
                     </BoxContact>
                   </BoxHotelDescritions>

@@ -75,7 +75,6 @@ const SideBar = () => {
           Filtros
         </ButtonMobile>
       </BoxButtonFilter>
-
       {open && (
         <ContainerSideBar>
           <ButtonClose onClick={() => setOpen(!open)}>
