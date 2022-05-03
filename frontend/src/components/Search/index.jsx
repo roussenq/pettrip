@@ -35,7 +35,6 @@ const Search = () => {
             onChange={(event, newValue) => {
               setSelectedCity(newValue);
             }}
-            style={{ fontSize: 10 }}
             renderInput={(params) => (
               <TextField
                 {...params}

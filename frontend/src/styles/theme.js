@@ -10,8 +10,6 @@ const globalStyle = `
   button, a {
     cursor: pointer;
   }
-
-
 `;
 
 const theme = createTheme({
@@ -32,7 +30,7 @@ const theme = createTheme({
 });
 
 theme.typography.body1 = {
-  fontSize: "1.2rem",
+  fontSize: "14px",
   fontWeight: 700,
 };
 
