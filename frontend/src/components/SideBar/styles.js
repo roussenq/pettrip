@@ -2,7 +2,7 @@ import { Box, Typography, styled, Button } from "@mui/material";
 
 export const ContainerSideBar = styled(Box)`
   max-width: 220px;
-  height: 560px;
+  height: 580px;
   background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0 0 0.4em #6464645e;
@@ -99,7 +99,7 @@ export const ButtonSearch = styled(Button)`
   margin-top: 19px;
 
   @media (max-width: 840px) {
-    margin-left: 53px;
+    margin-left: 36px;
     margin-top: 19px;
   }
 

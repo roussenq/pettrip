@@ -68,6 +68,7 @@ export const ButtonSearch = styled(Button)`
 
   @media (max-width: 480px) {
     border-radius: 4px;
+    font-size: 9px;
     margin-top: 18px;
     width: 69px;
     height: 30px;

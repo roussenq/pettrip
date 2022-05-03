@@ -49,7 +49,7 @@ export const CardBox = styled(Box)`
   align-items: center;
   background-color: #ffffff;
   border-top: 1px solid #e5e7eb;
-  margin: 10px auto;
+  margin: 26px auto;
   margin-right: 100px;
 
   @media (max-width: 280px) {
@@ -91,7 +91,7 @@ export const Name = styled(Typography)`
   font-size: 18px;
   color: #f47920;
   font-weight: 600;
-  padding: 6px 0px;
+  padding: 26px 0px;
 
   @media (max-width: 600px) {
     font-size: 14px;
