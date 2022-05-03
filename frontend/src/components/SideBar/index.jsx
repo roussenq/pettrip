@@ -122,7 +122,7 @@ const SideBar = () => {
               id="small"
             />
             <BoxButton checked={checkedButtonWeight.small}>
-              <TextButton>até 10KG</TextButton>
+              <TextButton>até 10kg</TextButton>
             </BoxButton>
           </label>
 
