@@ -20,25 +20,43 @@ export const ButtonMobile = styled(Button)`
 export const ContainerSideBar = styled(Box)`
   max-width: 220px;
   height: 560px;
-  background-color: #ffffff;
+  background-color: #ffffffed;
   border-radius: 15px;
   box-shadow: 0 0 0.4em #6464645e;
   font-family: "Montserrat Alternates", sans-serif;
   padding: 25px;
   display: none;
+  position: absolute;
 
   @media (max-width: 690px) {
     display: block;
-    margin: auto;
     margin-bottom: 4px;
     height: 580px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 493px;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 490px) {
     display: block;
     margin: auto;
     margin-bottom: 4px;
     height: 530px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 460px;
+  }
+
+  @media (max-width: 410px) {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 916px;
   }
 `;
 
