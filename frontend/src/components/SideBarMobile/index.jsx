@@ -78,6 +78,9 @@ const SideBar = () => {
 
       {open && (
         <ContainerSideBar>
+          <ButtonClose onClick={() => setOpen(!open)}>
+            <Close />
+          </ButtonClose>
           <TextFilter>Filtros de busca:</TextFilter>
           <BoxLine />
           <TextFilter>Qual o tipo do seu pet?</TextFilter>
@@ -228,9 +231,6 @@ const SideBar = () => {
               </label>
             </AnimalType>
             <ButtonSearch type="submit">Filtrar</ButtonSearch>
-            <ButtonClose onClick={() => setOpen(!open)}>
-              <Close color="primary" />
-            </ButtonClose>
           </form>
         </ContainerSideBar>
       )}

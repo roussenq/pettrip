@@ -20,7 +20,6 @@ export const ButtonMobile = styled(Button)`
 
 export const ContainerSideBar = styled(Box)`
   max-width: 220px;
-  height: 560px;
   background-color: #ffffffed;
   border-radius: 15px;
   box-shadow: 0 0 0.4em #6464645e;
@@ -31,7 +30,6 @@ export const ContainerSideBar = styled(Box)`
 
   @media (max-width: 690px) {
     display: block;
-    margin-bottom: 4px;
     height: 580px;
     bottom: 0;
     left: 0;
@@ -40,11 +38,10 @@ export const ContainerSideBar = styled(Box)`
     top: 493px;
   }
 
-  @media (max-width: 490px) {
+  @media (max-width: 485px) {
     display: block;
     margin: auto;
-    margin-bottom: 4px;
-    height: 530px;
+    height: 554px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -52,12 +49,24 @@ export const ContainerSideBar = styled(Box)`
     top: 460px;
   }
 
-  @media (max-width: 410px) {
+  @media (max-width: 470px) {
+    display: block;
+    margin: auto;
+    height: 554px;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
-    top: 916px;
+    top: 460px;
+  }
+
+  @media (max-width: 454px) {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 700px;
+    height: 489px;
   }
 `;
 
@@ -155,13 +164,11 @@ export const ButtonSearch = styled(Button)`
 `;
 
 export const ButtonClose = styled(Button)`
-  color: #ffffff;
-  font-size: 4px;
-  margin-left: 52px;
+  left: 120px;
   padding: 0px;
 
-  @media (max-width: 840px) {
-    margin-left: 53px;
-    margin-top: 19px;
+  & svg {
+    color: red;
+    font-size: 18px;
   }
 `;
