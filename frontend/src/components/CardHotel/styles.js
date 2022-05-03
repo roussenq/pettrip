@@ -59,7 +59,7 @@ export const CardBox = styled(Box)`
     height: 220px;
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1190px) {
     flex-direction: column;
     height: 235px;
     margin-right: 0px;
@@ -73,7 +73,7 @@ export const BoxImage = styled(Box)`
     width: 130px;
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1290px) {
     img {
       width: 90px;
       margin-top: 8px;
@@ -90,7 +90,7 @@ export const BoxHotelDescritions = styled(Box)`
 `;
 
 export const Name = styled(Typography)`
-  font-size: 15px;
+  font-size: 18px;
   color: #f47920;
   font-weight: 600;
   padding: 6px 0px;
@@ -99,12 +99,12 @@ export const Name = styled(Typography)`
     font-size: 14px;
   }
 
-  @media (max-width: 950px) {
-    font-size: 12px;
+  @media (max-width: 1290px) {
+    font-size: 13px;
   }
 `;
 export const Description = styled(Typography)`
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
   max-width: 90%;
   padding-bottom: 8px;
@@ -113,45 +113,50 @@ export const Description = styled(Typography)`
     display: none;
   }
 
-  @media (max-width: 600px) {
-    font-size: 10px;
-  }
-
-  @media (max-width: 950px) {
-    font-size: 8px;
+  @media (max-width: 1290px) {
+    font-size: 12px;
   }
 `;
 
 export const BoxContact = styled(Box)`
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 
   @media (max-width: 280px) {
     flex-direction: column;
     padding-bottom: 2px;
   }
 
-  @media (max-width: 950px) {
+  @media (max-width: 1290px) {
     padding-bottom: 2px;
   }
 `;
 
 export const Address = styled(Typography)`
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 600;
   color: #585757;
-  margin-right: 4px;
+  margin-right: 24px;
 
-  @media (max-width: 690px) {
-    font-size: 7px;
+  @media (max-width: 1290px) {
+    font-size: 10px;
   }
 `;
+
 export const Contact = styled(Typography)`
-  font-size: 9px;
+  font-size: 15px;
   font-weight: 600;
   color: #585757;
 
-  @media (max-width: 620px) {
-    font-size: 8px;
+  @media (max-width: 720px) {
+    font-size: 7px;
+  }
+
+  @media (max-width: 920px) {
+    font-size: 9px;
+  }
+
+  @media (max-width: 1290px) {
+    font-size: 12px;
   }
 `;

@@ -16,7 +16,7 @@ export const Title = styled(Typography)`
   padding-top: 33px;
   color: #373737;
   margin-bottom: 14px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 100;
   text-align: center;
   font-family: "Fredoka One", cursive;
@@ -25,14 +25,14 @@ export const Title = styled(Typography)`
 export const TextAbout = styled(Typography)`
   text-align: center;
   color: #373737;
-  font-size: 14px;
-  padding: 0px 190px;
+  font-size: 18px;
+  padding: 0px 180px;
   font-weight: 600;
-  line-height: 28px;
+  line-height: 35px;
 
   span {
     color: #f47920;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
   }
 
@@ -57,7 +57,7 @@ export const BoxQuestion = styled(Box)`
 export const QuestionAbout = styled(Typography)`
   text-align: center;
   color: #373737;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
 `;
 

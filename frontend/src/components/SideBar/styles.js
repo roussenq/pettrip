@@ -61,7 +61,7 @@ export const BoxLine = styled(Box)`
 `;
 
 export const BoxButton = styled(Box)`
-  width: 64px;
+  width: 68px;
   height: 26px;
   background-color: ${({ checked }) => (checked ? "#f47920" : "#fff")};
   color: ${({ checked }) => (checked ? "white" : "#$000")};
@@ -69,12 +69,13 @@ export const BoxButton = styled(Box)`
   border-radius: 5px;
   cursor: pointer;
   display: flex;
+  margin-top: 3px;
   align-items: center;
   justify-content: center;
 `;
 
 export const TextButton = styled(Typography)`
-  font-size: 10px;
+  font-size: 12.5px;
 `;
 
 export const AnimalSize = styled(Box)`
@@ -93,7 +94,7 @@ export const AnimalSize = styled(Box)`
 export const ButtonSearch = styled(Button)`
   background-color: #f47920;
   color: #ffffff;
-  font-size: 9px;
+  font-size: 10px;
   margin-left: 52px;
   margin-top: 19px;
 
