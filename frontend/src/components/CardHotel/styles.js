@@ -17,7 +17,6 @@ export const CardContainer = styled(Box)`
 export const TextCity = styled(Typography)`
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 16px;
-  color: #000
   font-weight: 600;
   padding: 8px 0px;
 
@@ -51,7 +50,6 @@ export const CardBox = styled(Box)`
   background-color: #ffffff;
   border-top: 1px solid #e5e7eb;
   margin: 10px auto;
-  height: 184px;
   margin-right: 100px;
 
   @media (max-width: 280px) {
@@ -59,9 +57,9 @@ export const CardBox = styled(Box)`
     height: 220px;
   }
 
-  @media (max-width: 1190px) {
+  @media (max-width: 800px) {
     flex-direction: column;
-    height: 235px;
+    height: 355px;
     margin-right: 0px;
   }
 `;
@@ -85,7 +83,7 @@ export const BoxHotelDescritions = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 80%;
+  width: 100%;
   height: 100%;
 `;
 
