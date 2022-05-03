@@ -65,7 +65,7 @@ export const ContainerBar = styled(Box)`
   background-color: #fffdfd;
   height: 38px;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 15px;
   max-width: 458px;
   border-radius: 4px;
   box-shadow: 0px 0px 4px #00000057;
@@ -76,11 +76,9 @@ export const ContainerBar = styled(Box)`
     flex-direction: column;
     align-items: center;
     height: 90px;
-    padding: 15px 0px;
-    margin: 10px auto;
+    margin: 20px auto 0 auto;
     max-width: 280px;
     justify-content: center;
     border-radius: 6px;
-    margin-top: 10px;
   }
 `;

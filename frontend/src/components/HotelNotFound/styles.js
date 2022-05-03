@@ -7,6 +7,10 @@ export const SectionContainer = styled(Box)`
   max-width: 100%;
   margin-left: 60px;
   border-radius: 9px;
+
+  @media (max-width: 690px) {
+    margin-left: 0px;
+  }
 `;
 
 export const BoxText = styled(Box)`

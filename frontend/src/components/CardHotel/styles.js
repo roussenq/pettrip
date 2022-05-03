@@ -8,6 +8,10 @@ export const CardContainer = styled(Box)`
   ul {
     list-style: none;
   }
+
+  @media (max-width: 690px) {
+    margin-left: 0px;
+  }
 `;
 
 export const TextCity = styled(Typography)`
@@ -30,8 +34,9 @@ export const TextCity = styled(Typography)`
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 690px) {
     font-size: 12px;
+    margin: 10px 0 20px 0;
 
     span {
       font-size: 13px;

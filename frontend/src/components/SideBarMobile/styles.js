@@ -14,6 +14,7 @@ export const ButtonMobile = styled(Button)`
 
   @media (max-width: 690px) {
     display: block;
+    margin-top: 15px;
   }
 `;
 
