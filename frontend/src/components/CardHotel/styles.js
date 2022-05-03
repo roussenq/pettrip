@@ -22,7 +22,7 @@ export const TextCity = styled(Typography)`
     font-size: 18px;
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: 950px) {
     font-size: 12px;
 
     span {
@@ -54,22 +54,24 @@ export const CardBox = styled(Box)`
     height: 220px;
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: 1000px) {
     flex-direction: column;
-    height: 220px;
+    height: 235px;
+    margin-right: 0px;
   }
 `;
 
 export const BoxImage = styled(Box)`
   margin: 0px 40px;
+
   img {
-    width: 150px;
+    width: 130px;
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: 1000px) {
     img {
       width: 90px;
-      margin-top: 10px;
+      margin-top: 8px;
     }
   }
 `;
@@ -86,13 +88,13 @@ export const Name = styled(Typography)`
   font-size: 15px;
   color: #f47920;
   font-weight: 600;
-  padding: 8px 0px;
+  padding: 6px 0px;
 
   @media (max-width: 600px) {
     font-size: 14px;
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: 950px) {
     font-size: 12px;
   }
 `;
@@ -110,7 +112,7 @@ export const Description = styled(Typography)`
     font-size: 10px;
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: 950px) {
     font-size: 8px;
   }
 `;
@@ -124,7 +126,7 @@ export const BoxContact = styled(Box)`
     padding-bottom: 2px;
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: 950px) {
     padding-bottom: 2px;
   }
 `;
