@@ -104,15 +104,17 @@ export const Name = styled(Typography)`
 export const Description = styled(Typography)`
   font-size: 16px;
   font-weight: 400;
-  max-width: 90%;
+  max-width: 100%;
   padding-bottom: 8px;
+  margin-bottom: 12px;
+  text-align: justify;
 
   @media (max-width: 344px) {
     display: none;
   }
 
   @media (max-width: 1290px) {
-    font-size: 12px;
+    font-size: 11px;
   }
 `;
 
