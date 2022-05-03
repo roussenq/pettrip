@@ -59,7 +59,7 @@ export const CardBox = styled(Box)`
 
   @media (max-width: 800px) {
     flex-direction: column;
-    height: 355px;
+    height: 310px;
     margin-right: 0px;
   }
 `;
@@ -82,7 +82,7 @@ export const BoxImage = styled(Box)`
 export const BoxHotelDescritions = styled(Box)`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
   height: 100%;
 `;

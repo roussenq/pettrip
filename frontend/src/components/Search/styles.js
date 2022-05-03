@@ -61,9 +61,9 @@ export const InputAutocomplete = styled(Autocomplete)`
 export const ButtonSearch = styled(Button)`
   background-color: #f47920;
   color: #ffffff;
-  font-size: 14px;
-  height: 39px;
-  width: 110px;
+  font-size: 12px;
+  height: 41px;
+  width: 88px;
   border-radius: 0px 4px 4px 0px;
 
   @media (max-width: 480px) {
