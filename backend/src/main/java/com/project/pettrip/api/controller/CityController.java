@@ -23,7 +23,7 @@ public class CityController {
         this.cityService = cityService;
     }
 
-    @ApiOperation("Obter lista de cidades existentes no banco")
+    @ApiOperation("Obtains list of cities existing in database.")
     @ApiResponse(code = 200, message = "ok")
     @GetMapping
     public List<CitySummaryDTO> findAllCities(){

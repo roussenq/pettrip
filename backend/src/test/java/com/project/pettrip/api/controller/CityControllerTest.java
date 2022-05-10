@@ -1,4 +1,4 @@
-package com.project.pettrip.controller;
+package com.project.pettrip.api.controller;
 
 import com.project.pettrip.domain.model.City;
 import com.project.pettrip.domain.service.CityService;
@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class CityControllerTest {
 
-    static String CITY_URI = "/city";
+    static String CITY_URI = "/cities";
 
     @Autowired
     MockMvc mvc;

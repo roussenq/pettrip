@@ -1,4 +1,4 @@
-package com.project.pettrip.service;
+package com.project.pettrip.domain.service;
 
 import com.project.pettrip.domain.model.City;
 import com.project.pettrip.domain.repository.CityRepository;
@@ -43,6 +43,19 @@ class CityServiceImplTest {
         Assertions.assertNotNull(results);
         Assertions.assertEquals(2, results.size());
         Mockito.verify(cityRepository, Mockito.times(1)).findAll();
+    }
+
+    @Test
+    @DisplayName("Deve retornar o id de Florianópolis")
+    void returnFlorianopolisId() {
+        City city1 = createCity(1L, "Florianópolis", "SC");
+
+        Mockito.when(cityRepository.findByCity(Mockito.any(String.class))).thenReturn(city1);
+
+        Long result = cityService.getDefaultCityId();
+
+        Assertions.assertEquals(1L, result);
+
     }
 
     private City createCity(Long id, String city, String state) {

@@ -20,4 +20,9 @@ public class CityServiceImpl implements CityService {
     public List<City> listCities() {
         return cityRepository.findAll();
     }
+
+    @Override
+    public Long getDefaultCityId() {
+        return cityRepository.findByCity("Florianópolis").getId();
+    }
 }

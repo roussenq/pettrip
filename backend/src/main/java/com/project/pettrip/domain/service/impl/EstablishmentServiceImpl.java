@@ -8,14 +8,19 @@ import com.project.pettrip.domain.model.City;
 import com.project.pettrip.domain.model.Establishment;
 import com.project.pettrip.domain.model.Filters;
 import com.project.pettrip.domain.repository.EstablishmentRepository;
+import com.project.pettrip.domain.repository.specs.EstablishmentSpecs;
 import com.project.pettrip.domain.service.EstablishmentService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.project.pettrip.domain.repository.specs.EstablishmentSpecs.toSpec;
 
 @Service
 public class EstablishmentServiceImpl implements EstablishmentService {
@@ -30,7 +35,8 @@ public class EstablishmentServiceImpl implements EstablishmentService {
     @Transactional(readOnly = true)
     public Page<EstablishmentSummaryDTO> findByFilters(EstablishmentInputDTO establishmentInputDTO, Pageable pageRequest) {
 
-        Page<Establishment> resultPage = establishmentRepository.findAll(establishmentInputDTO.toSpec(), pageRequest);
+
+        Page<Establishment> resultPage = establishmentRepository.findAll(toSpec(establishmentInputDTO), pageRequest);
         if (resultPage.isEmpty()){
             throw new BusinessException("Oops... Sinto muito. Não foi possível encontrar resultados com as informações " +
                     "que você deseja, tente novamente.");

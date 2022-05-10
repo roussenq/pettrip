@@ -10,4 +10,8 @@ class PettripApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void main() {
+	}
+
 }
