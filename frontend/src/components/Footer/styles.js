@@ -8,7 +8,7 @@ export const SectionFooter = styled(Box)`
   width: 100%;
 `;
 
-export const BoxText = styled(Typography)`
+export const BoxText = styled(Box)`
   display: flex;
   justify-content: space-around;
   padding-top: 41px;

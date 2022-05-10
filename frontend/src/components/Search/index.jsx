@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ButtonSearch, BoxForm, InputAutocomplete, BoxSearch } from "./styles";
 import { TextField } from "@mui/material";
+import { useCities } from "../../contextApi/useCities";
 import { useHotels } from "../../contextApi/useHotels";
 
 const Search = () => {
-  const { setCity, handleSearchCities, citiesOptions } = useHotels();
+  const { handleSearchCities, citiesOptions } = useCities();
+  const { setCity } = useCities();
 
   const [selectedCity, setSelectedCity] = useState({
     label: "Florianópolis, SC",

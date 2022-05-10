@@ -14,9 +14,12 @@ import {
 } from "./styles";
 import { useHotels } from "../../contextApi/useHotels";
 import HotelNotFound from "../HotelNotFound";
+import { useCities } from "../../contextApi/useCities";
+import Pagination from "../Pagination";
 
 const CardHotel = () => {
-  const { city, hotels } = useHotels();
+  const { hotels } = useHotels();
+  const { city } = useCities();
 
   if (hotels.length === 0) {
     return <HotelNotFound />;
@@ -54,6 +57,7 @@ const CardHotel = () => {
             ))}
           </ul>
         </Container>
+        <Pagination />
       </CardContainer>
     );
   }
