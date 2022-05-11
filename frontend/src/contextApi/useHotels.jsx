@@ -17,8 +17,6 @@ export function HotelContextProvider({ children }) {
     last: false,
   });
 
-  console.log(pagination.page, "número pág");
-
   const handleSearch = async () => {
     let paramsOptions = {};
     paramsOptions = {
@@ -30,7 +28,6 @@ export function HotelContextProvider({ children }) {
         cityId: city.id,
       },
     };
-
     paramsOptions = {
       params: {
         ...paramsOptions.params,
@@ -42,7 +39,7 @@ export function HotelContextProvider({ children }) {
       const response = await api.get("/establishment/", paramsOptions);
       const {
         content,
-        pageable: { page },
+        pageable: { pageNumber: page },
         first,
         last,
       } = response.data;

@@ -1,6 +1,11 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { useHotels } from "../../contextApi/useHotels";
+import { BoxButton, ButtonPage } from "./styles";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 
 function Pagination() {
   const { pagination, setPagination } = useHotels();
@@ -18,12 +23,14 @@ function Pagination() {
   }
 
   return (
-    <Box>
-      <Button onClick={returnPage}>Voltar</Button>
-      <Button disabled={pagination.last} onClick={nextPage}>
-        Avançar
-      </Button>
-    </Box>
+    <BoxButton>
+      <ButtonPage disabled={pagination.first} onClick={returnPage}>
+        <BsFillArrowLeftCircleFill />
+      </ButtonPage>
+      <ButtonPage disabled={pagination.last} onClick={nextPage}>
+        <BsFillArrowRightCircleFill />
+      </ButtonPage>
+    </BoxButton>
   );
 }
 

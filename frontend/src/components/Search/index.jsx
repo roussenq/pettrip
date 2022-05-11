@@ -5,8 +5,8 @@ import { useCities } from "../../contextApi/useCities";
 import { useHotels } from "../../contextApi/useHotels";
 
 const Search = () => {
-  const { handleSearchCities, citiesOptions } = useCities();
-  const { setCity } = useCities();
+  const { handleSearchCities, citiesOptions, setCity } = useCities();
+  const { pagination, setPagination } = useHotels();
 
   const [selectedCity, setSelectedCity] = useState({
     label: "Florianópolis, SC",
@@ -15,6 +15,7 @@ const Search = () => {
 
   function handleSubmit() {
     setCity(selectedCity);
+    setPagination({ ...pagination, page: 0 });
   }
 
   useEffect(() => {
