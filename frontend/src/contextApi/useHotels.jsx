@@ -1,17 +1,21 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../services/api";
+import { useCities } from "./useCities";
 
 export const HotelContext = createContext({});
 
 export function HotelContextProvider({ children }) {
   const [hotels, setHotels] = useState([]);
   const [filter, setFilter] = useState({});
-  const [city, setCity] = useState({
-    label: "Florianópolis, SC",
-    id: 1,
-  });
+  const { city } = useCities();
 
   const [citiesOptions, setCitiesOptions] = useState([]);
+
+  const [pagination, setPagination] = useState({
+    page: 0,
+    first: false,
+    last: false,
+  });
 
   const handleSearch = async () => {
     let paramsOptions = {};
@@ -21,19 +25,26 @@ export function HotelContextProvider({ children }) {
         gender: filter.gender,
         castrated: filter.castrated,
         weight: filter.weight,
+        cityId: city.id,
       },
     };
-
     paramsOptions = {
       params: {
         ...paramsOptions.params,
-        cityId: city.id,
+        page: pagination.page,
       },
     };
 
     try {
       const response = await api.get("/establishment/", paramsOptions);
-      setHotels(response.data.content);
+      const {
+        content,
+        pageable: { pageNumber: page },
+        first,
+        last,
+      } = response.data;
+      setHotels(content);
+      setPagination({ ...pagination, page, first, last });
     } catch (error) {
       setHotels([]);
     }
@@ -41,7 +52,7 @@ export function HotelContextProvider({ children }) {
 
   useEffect(() => {
     handleSearch();
-  }, [city, filter]);
+  }, [city, filter, pagination.page]);
 
   const handleSearchCities = async () => {
     try {
@@ -61,13 +72,13 @@ export function HotelContextProvider({ children }) {
   return (
     <HotelContext.Provider
       value={{
-        city,
-        setCity,
         hotels,
         handleSearch,
         citiesOptions,
         handleSearchCities,
         setFilter,
+        pagination,
+        setPagination,
       }}
     >
       {children}

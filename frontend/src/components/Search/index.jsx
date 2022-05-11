@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ButtonSearch, BoxForm, InputAutocomplete, BoxSearch } from "./styles";
 import { TextField } from "@mui/material";
+import { useCities } from "../../contextApi/useCities";
 import { useHotels } from "../../contextApi/useHotels";
 
 const Search = () => {
-  const { setCity, handleSearchCities, citiesOptions } = useHotels();
+  const { handleSearchCities, citiesOptions, setCity } = useCities();
+  const { pagination, setPagination } = useHotels();
 
   const [selectedCity, setSelectedCity] = useState({
     label: "Florianópolis, SC",
@@ -13,6 +15,7 @@ const Search = () => {
 
   function handleSubmit() {
     setCity(selectedCity);
+    setPagination({ ...pagination, page: 0 });
   }
 
   useEffect(() => {
