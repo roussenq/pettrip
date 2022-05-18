@@ -22,7 +22,11 @@ const Header = () => {
             <TypographyTitle>Pet Trip</TypographyTitle>
           </BoxLogo>
           <Subscribe>
-            <a href="https://my.forms.app/form/623e5dcd17a64c6caea88d12">
+            <a
+              target="_blank"
+              rel="external"
+              href="https://my.forms.app/form/623e5dcd17a64c6caea88d12"
+            >
               Solicitar inscrição aqui
             </a>
           </Subscribe>

@@ -7,6 +7,16 @@ const globalStyle = `
     box-sizing: border-box;
   }
 
+  html, body {
+    min-height: 100%;
+    heigth: 100%;
+ }
+
+ #root {
+  min-height: 100%;
+  position: relative;
+}
+
   button, a {
     cursor: pointer;
   }
