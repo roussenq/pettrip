@@ -16,6 +16,10 @@ export const ButtonMobile = styled(Button)`
     display: block;
     margin-top: 15px;
   }
+
+  :hover {
+    background-color: #28a0a7a1;
+  }
 `;
 
 export const ContainerSideBar = styled(Box)`
@@ -159,7 +163,7 @@ export const ButtonSearch = styled(Button)`
   }
 
   :hover {
-    background-color: #f47920;
+    background-color: #f47920a3;
   }
 `;
 
@@ -170,5 +174,9 @@ export const ButtonClose = styled(Button)`
   & svg {
     color: red;
     font-size: 18px;
+  }
+
+  :hover {
+    background: none;
   }
 `;

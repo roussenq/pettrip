@@ -1,14 +1,8 @@
 import { Button, styled, Box, Autocomplete } from "@mui/material";
 
 export const BoxForm = styled(Box)`
-  display: flex;
-  max-width: 600px;
-  justify-content: space-between;
   font-family: "Montserrat Alternates", sans-serif;
-
-  @media (max-width: 630px) {
-    flex-direction: column;
-  }
+  max-width: 100%;
 `;
 
 export const BoxSearch = styled(Box)`
@@ -21,8 +15,8 @@ export const BoxSearch = styled(Box)`
 `;
 
 export const InputAutocomplete = styled(Autocomplete)`
-  width: 380px;
-  padding: 5px 4px 4px 40px;
+  width: 400px;
+  padding: 10px 4px 4px 90px;
 
   & input {
     width: 200px;
@@ -31,8 +25,7 @@ export const InputAutocomplete = styled(Autocomplete)`
   }
 
   & svg {
-    width: 30px;
-    margin-bottom: 5x;
+    display: none;
   }
 
   @media (max-width: 480px) {
@@ -43,12 +36,6 @@ export const InputAutocomplete = styled(Autocomplete)`
       width: 150px;
       padding-left: 10px;
       font-size: 12px;
-    }
-
-    & svg {
-      width: 30px;
-      padding: 4px;
-      margin-bottom: 5x;
     }
   }
 
@@ -62,9 +49,14 @@ export const ButtonSearch = styled(Button)`
   background-color: #f47920;
   color: #ffffff;
   font-size: 12px;
-  height: 41px;
+  height: 50px;
   width: 88px;
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0px 10px 10px 0px;
+  margin-left: 125px;
+
+  @media (max-width: 512px) {
+    margin-left: 0;
+  }
 
   @media (max-width: 480px) {
     border-radius: 4px;
@@ -75,6 +67,6 @@ export const ButtonSearch = styled(Button)`
   }
 
   :hover {
-    background-color: #f47920;
+    background-color: #f47920a3;
   }
 `;

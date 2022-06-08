@@ -63,11 +63,11 @@ export const QuestionAbout = styled(Typography)`
 
 export const ContainerBar = styled(Box)`
   background-color: #fffdfdc4;
-  height: 38px;
+  height: 50px;
   margin: auto;
   margin-top: 15px;
-  max-width: 458px;
-  border-radius: 4px;
+  max-width: 590px;
+  border-radius: 10px;
   box-shadow: 0px 0px 4px #00000057;
   display: flex;
   align-items: center;

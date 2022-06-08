@@ -47,7 +47,7 @@ const Search = () => {
               />
             )}
           />
-          <ButtonSearch type="submit">Pesquisar</ButtonSearch>
+          <ButtonSearch type="submit">Buscar</ButtonSearch>
         </BoxSearch>
       </form>
     </BoxForm>
