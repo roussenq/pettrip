@@ -15,7 +15,7 @@ export const BoxSearch = styled(Box)`
 `;
 
 export const InputAutocomplete = styled(Autocomplete)`
-  width: 400px;
+  width: 512px;
   padding: 10px 4px 4px 90px;
 
   & input {
@@ -52,7 +52,7 @@ export const ButtonSearch = styled(Button)`
   height: 50px;
   width: 88px;
   border-radius: 0px 10px 10px 0px;
-  margin-left: 125px;
+  margin-left: 66px;
 
   @media (max-width: 512px) {
     margin-left: 0;

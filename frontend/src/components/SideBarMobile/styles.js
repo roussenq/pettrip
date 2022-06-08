@@ -30,47 +30,18 @@ export const ContainerSideBar = styled(Box)`
   font-family: "Montserrat Alternates", sans-serif;
   padding: 25px;
   display: none;
-  position: absolute;
 
   @media (max-width: 690px) {
     display: block;
+    position: absolute;
     height: 580px;
-    bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
-    top: 493px;
+    margin: 0 auto;
   }
 
-  @media (max-width: 485px) {
-    display: block;
-    margin: auto;
-    height: 554px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 460px;
-  }
-
-  @media (max-width: 470px) {
-    display: block;
-    margin: auto;
-    height: 554px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 460px;
-  }
-
-  @media (max-width: 454px) {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 700px;
-    height: 489px;
+  @media (max-width: 451px) {
+    height: 503px;
   }
 `;
 
