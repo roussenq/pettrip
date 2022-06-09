@@ -1,3 +1,11 @@
+/** Context API dos hotéis
+ * Criação de um contexto para Hotel e gerado um hook para a sua utilização, chamado useHotels.
+ *  * funções:
+ *   - HotelContextProvider({children}) função que irá compartilhar dados para seus componentes filhos.
+ *   - handleSearch() função assíncrona que irá fazer a busca na API dos hotéis com a devida paginação e irá enviar por parâmetro os filtros selecionandos de características do pet, a cidade selecionada e a página.
+ * useEffect é o hook que irá fazer a chamada da função handleSearch() e será chamado sempre que uma das variáveis do seu array de dependência atualizar.
+ */
+
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../services/api";
 import { useCities } from "./useCities";
@@ -54,28 +62,11 @@ export function HotelContextProvider({ children }) {
     handleSearch();
   }, [city, filter, pagination.page]);
 
-  const handleSearchCities = async () => {
-    try {
-      const response = await api.get("/cities/");
-      const citiesFormated = response.data.map((city) => {
-        return {
-          label: city.cityAndState,
-          id: city.id,
-        };
-      });
-      setCitiesOptions(citiesFormated);
-    } catch (error) {
-      setCitiesOptions([]);
-    }
-  };
-
   return (
     <HotelContext.Provider
       value={{
         hotels,
         handleSearch,
-        citiesOptions,
-        handleSearchCities,
         setFilter,
         pagination,
         setPagination,

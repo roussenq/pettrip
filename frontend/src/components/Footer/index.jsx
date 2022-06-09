@@ -1,7 +1,11 @@
 import React from "react";
-import { Container, Box } from "@mui/material";
+import { Container } from "@mui/material";
 import { SectionFooter, TextSenac, BoxText, TextStudents } from "./styles";
 
+/**
+ * Este componente se refere ao Footer da página.
+ * @returns o componente retorna os textos do Footer.
+ */
 const Footer = () => {
   return (
     <SectionFooter>

@@ -17,6 +17,14 @@ import HotelNotFound from "../HotelNotFound";
 import { useCities } from "../../contextApi/useCities";
 import Pagination from "../Pagination";
 
+/**
+ * Este componente é responsável por renderizar na tela os hotéis.
+ * Através do Context API useCities, este componente consegue ter acesso à cidade escolhida pelo usuário através da variável de estado city, para mostrar em tela.
+ * Ainda, através do Context API useHotels, este componente consegue ter acesso aos hotéis que estão vindo da API através da variável de estado hotels.
+ * @returns caso não venha nenhum hotel da API, é retornado o componente HotelNotFound.
+ * @returns caso venha os hoteis da API, é renderizado em tela a cidade selecionada e os hoteis.
+ */
+
 const CardHotel = () => {
   const { hotels } = useHotels();
   const { city } = useCities();

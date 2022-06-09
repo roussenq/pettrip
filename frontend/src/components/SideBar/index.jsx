@@ -21,6 +21,19 @@ import {
   filterCastrated,
 } from "../../controlButtons/controlButtons";
 
+/**
+ * Este componente contém um formulário do react hook form que armazena os dados dos filtros que o usuário
+ * clicou em tela.
+ * Através do Context API useHotels, é possível ter acesso a função setFilter, que é de atualização da variável de estado.
+ * * funções:
+ *   - controlButtonType() irá chamar a função de atualização de estado setCheckedButtonTye e irá atualizar o estado, passando a propriedade true (clicado) para o radio button.
+ *   - Demais funções de control seguem a mesma lógica.
+ *   - handleFilters() função que irá chamar a função de atualização de estado setFilter e passar os dados do formulário preenchido após o click do botão Filtrar.
+ *
+ *
+ * @returns o componente retorna em tela as seleções dos filtros por características do pet e um botão de filtrar.
+ */
+
 const SideBar = () => {
   const { register, handleSubmit } = useForm();
   const { setFilter } = useHotels();

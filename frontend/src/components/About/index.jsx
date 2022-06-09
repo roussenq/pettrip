@@ -12,6 +12,10 @@ import {
   ContainerBar,
 } from "./styles";
 
+/**
+ * Componente de "Sobre o site". Ele contém o título, descrição e faz a chamada do componente Search, que se refere ao componente de busca das cidades.
+ * @returns em seu retorno, ele renderiza na tela as informações descritas acima.
+ */
 const About = () => {
   return (
     <AboutDescription>

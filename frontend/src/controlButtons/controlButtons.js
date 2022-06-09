@@ -1,3 +1,7 @@
+/**
+ * constante que possui o objeto referente ao estado.
+ */
+
 export const filterType = {
   cat: false,
   dog: false,
