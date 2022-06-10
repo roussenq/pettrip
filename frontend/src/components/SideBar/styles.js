@@ -91,19 +91,26 @@ export const AnimalSize = styled(Box)`
   }
 `;
 
-export const ButtonSearch = styled(Button)`
+export const ButtonFilter = styled(Button)`
   background-color: #f47920;
   color: #ffffff;
   font-size: 10px;
-  margin-left: 52px;
   margin-top: 19px;
-
-  @media (max-width: 840px) {
-    margin-left: 36px;
-    margin-top: 19px;
-  }
+  margin-left: 14px;
 
   :hover {
-    background-color: #f47920;
+    background-color: #f47920a3;
+  }
+`;
+
+export const ButtonClear = styled(Button)`
+  background-color: #169f26b5;
+  color: #ffffff;
+  font-size: 10px;
+  margin-top: 19px;
+  margin-left: 14px;
+
+  :hover {
+    background-color: #169f267a;
   }
 `;

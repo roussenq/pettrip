@@ -30,6 +30,7 @@ export const ContainerSideBar = styled(Box)`
   font-family: "Montserrat Alternates", sans-serif;
   padding: 25px;
   display: none;
+  z-index: 1;
 
   @media (max-width: 690px) {
     display: block;
@@ -125,13 +126,8 @@ export const ButtonSearch = styled(Button)`
   background-color: #f47920;
   color: #ffffff;
   font-size: 9px;
-  margin-left: 52px;
+  margin-left: 14px;
   margin-top: 19px;
-
-  @media (max-width: 840px) {
-    margin-left: 53px;
-    margin-top: 19px;
-  }
 
   :hover {
     background-color: #f47920a3;
@@ -149,5 +145,17 @@ export const ButtonClose = styled(Button)`
 
   :hover {
     background: none;
+  }
+`;
+
+export const ButtonClear = styled(Button)`
+  background-color: #169f26b5;
+  color: #ffffff;
+  font-size: 9px;
+  margin-top: 19px;
+  margin-left: 14px;
+
+  :hover {
+    background-color: #169f267a;
   }
 `;

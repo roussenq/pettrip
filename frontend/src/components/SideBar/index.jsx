@@ -11,7 +11,8 @@ import {
   AnimalSize,
   BoxButton,
   TextButton,
-  ButtonSearch,
+  ButtonFilter,
+  ButtonClear,
 } from "./styles";
 
 import {
@@ -29,6 +30,7 @@ import {
  *   - controlButtonType() irá chamar a função de atualização de estado setCheckedButtonTye e irá atualizar o estado, passando a propriedade true (clicado) para o radio button.
  *   - Demais funções de control seguem a mesma lógica.
  *   - handleFilters() função que irá chamar a função de atualização de estado setFilter e passar os dados do formulário preenchido após o click do botão Filtrar.
+ *   - cleanFilters() função que irá limpar os filtros clicados pelo usuário. Ela irá alterar o estado de checked de cada botão de true para false, tornando-os desabilitados.
  *
  *
  * @returns o componente retorna em tela as seleções dos filtros por características do pet e um botão de filtrar.
@@ -40,8 +42,8 @@ const SideBar = () => {
 
   const [checkedButtonType, setCheckedButtonType] = useState(filterType);
   const [checkedButtonWeight, setCheckedButtonWeight] = useState(filterWeight);
-  const [checkedButtonGender, setButtonGender] = useState(filterGender);
-  const [checkedButtonCastrated, setButtonCastrated] =
+  const [checkedButtonGender, setCheckedButtonGender] = useState(filterGender);
+  const [checkedButtonCastrated, setCheckedButtonCastrated] =
     useState(filterCastrated);
 
   function controlButtonType(type) {
@@ -59,14 +61,14 @@ const SideBar = () => {
   }
 
   function controlButtonGender(gender) {
-    setButtonGender({
+    setCheckedButtonGender({
       ...filterGender,
       [gender]: true,
     });
   }
 
   function controlButtonCastrated(castrated) {
-    setButtonCastrated({
+    setCheckedButtonCastrated({
       ...filterCastrated,
       [castrated]: true,
     });
@@ -74,6 +76,13 @@ const SideBar = () => {
 
   function handleFilters(data) {
     setFilter(data);
+  }
+
+  function cleanFilters() {
+    setCheckedButtonType(filterType);
+    setCheckedButtonWeight(filterWeight);
+    setCheckedButtonGender(filterGender);
+    setCheckedButtonCastrated(filterCastrated);
   }
 
   return (
@@ -223,7 +232,9 @@ const SideBar = () => {
             </BoxButton>
           </label>
         </AnimalType>
-        <ButtonSearch type="submit">Filtrar</ButtonSearch>
+
+        <ButtonFilter type="submit">Filtrar</ButtonFilter>
+        <ButtonClear onClick={cleanFilters}>Limpar</ButtonClear>
       </form>
     </ContainerSideBar>
   );

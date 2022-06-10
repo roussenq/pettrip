@@ -16,6 +16,7 @@ import {
   TextButton,
   ButtonSearch,
   ButtonClose,
+  ButtonClear,
 } from "./styles";
 
 import {
@@ -43,8 +44,8 @@ const SideBar = () => {
 
   const [checkedButtonType, setCheckedButtonType] = useState(filterType);
   const [checkedButtonWeight, setCheckedButtonWeight] = useState(filterWeight);
-  const [checkedButtonGender, setButtonGender] = useState(filterGender);
-  const [checkedButtonCastrated, setButtonCastrated] =
+  const [checkedButtonGender, setCheckedButtonGender] = useState(filterGender);
+  const [checkedButtonCastrated, setCheckedButtonCastrated] =
     useState(filterCastrated);
 
   function controlButtonType(type) {
@@ -62,14 +63,14 @@ const SideBar = () => {
   }
 
   function controlButtonGender(gender) {
-    setButtonGender({
+    setCheckedButtonGender({
       ...filterGender,
       [gender]: true,
     });
   }
 
   function controlButtonCastrated(castrated) {
-    setButtonCastrated({
+    setCheckedButtonCastrated({
       ...filterCastrated,
       [castrated]: true,
     });
@@ -77,6 +78,13 @@ const SideBar = () => {
 
   function handleFilters(data) {
     setFilter(data);
+  }
+
+  function cleanFilters() {
+    setCheckedButtonType(filterType);
+    setCheckedButtonWeight(filterWeight);
+    setCheckedButtonGender(filterGender);
+    setCheckedButtonCastrated(filterCastrated);
   }
 
   return (
@@ -240,7 +248,9 @@ const SideBar = () => {
                 </BoxButton>
               </label>
             </AnimalType>
+
             <ButtonSearch type="submit">Filtrar</ButtonSearch>
+            <ButtonClear onClick={cleanFilters}>Limpar</ButtonClear>
           </form>
         </ContainerSideBar>
       )}
