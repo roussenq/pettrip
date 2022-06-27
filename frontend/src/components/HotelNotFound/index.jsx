@@ -3,8 +3,8 @@ import { Container } from "@mui/material";
 import { SectionContainer, BoxText, Text, TextDescription } from "./styles";
 
 /**
- * Este componente se refere aos hotéis não encontrados.
- * @returns o componente retorna uma imagem euma mensagem de hotéis não encontrados.
+ * Este componente renderiza na tela uma mensagem de erro caso o status code seja 400
+ * @returns o componente retorna uma imagem e uma mensagem de hotéis não encontrados.
  */
 
 const HotelNotFound = () => {

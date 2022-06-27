@@ -20,18 +20,11 @@ export const BoxText = styled(Box)`
   }
 `;
 
-export const TextSenac = styled(Typography)`
+export const TextFooter = styled(Typography)`
   font-size: 11px;
 
   @media (max-width: 570px) {
     font-size: 9px;
     padding-bottom: 12px;
-`;
-
-export const TextStudents = styled(Typography)`
-  font-size: 11px;
-
-
-  @media (max-width: 570px) {
-    font-size: 9px;
+  }
 `;

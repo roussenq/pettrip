@@ -2,6 +2,7 @@ import { Box, Typography, styled, Button } from "@mui/material";
 
 export const ContainerSideBar = styled(Box)`
   max-width: 220px;
+  min-width: 220px;
   height: 580px;
   background-color: #ffffff;
   border-radius: 15px;

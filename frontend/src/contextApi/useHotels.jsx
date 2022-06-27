@@ -6,7 +6,7 @@
  * useEffect é o hook que irá fazer a chamada da função handleSearch() e será chamado sempre que uma das variáveis do seu array de dependência atualizar.
  */
 
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import api from "../services/api";
 import { useCities } from "./useCities";
 
@@ -17,15 +17,18 @@ export function HotelContextProvider({ children }) {
   const [filter, setFilter] = useState({});
   const { city } = useCities();
 
-  const [citiesOptions, setCitiesOptions] = useState([]);
-
   const [pagination, setPagination] = useState({
     page: 0,
     first: false,
     last: false,
   });
 
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   const handleSearch = async () => {
+    setIsLoading(true);
+    setError(false);
     let paramsOptions = {};
     paramsOptions = {
       params: {
@@ -54,7 +57,14 @@ export function HotelContextProvider({ children }) {
       setHotels(content);
       setPagination({ ...pagination, page, first, last });
     } catch (error) {
-      setHotels([]);
+      const data = error.response.data;
+      if (data.status === 400) {
+        setHotels([]);
+      } else {
+        setError(true); //se vir qualquer erro diferente de 400, ex: 401, 402, 500...
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -70,6 +80,8 @@ export function HotelContextProvider({ children }) {
         setFilter,
         pagination,
         setPagination,
+        isLoading,
+        error,
       }}
     >
       {children}

@@ -1,18 +1,17 @@
 import { Box, styled, Typography } from "@mui/material";
-import dogErro from "../../assets/images/dogErro.png";
+import dogNotFound from "../../assets/images/dogNotFound.png";
 
 export const SectionContainer = styled(Box)`
-  background: url(${dogErro}) center center no-repeat;
+  background: url(${dogNotFound}) center center no-repeat;
   background-size: cover;
   max-width: 100%;
-  margin-left: 60px;
+  height: 540px;
   border-radius: 9px;
 
   @media (max-width: 690px) {
     margin-left: 0px;
   }
 `;
-
 export const BoxText = styled(Box)`
   font-family: "Montserrat Alternates", sans-serif;
   display: flex;
@@ -25,19 +24,22 @@ export const BoxText = styled(Box)`
     height: 438px;
     padding: 0px;
   }
-
-  @media (max-width: 419px) {
-    height: 438px;
-    padding: 0px;
-  }
 `;
 
 export const Text = styled(Typography)`
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 4px;
 
   span {
     color: #f47920;
+  }
+
+  @media (max-width: 690px) {
+    font-size: 14px;
+
+    span {
+      font-size: 14px;
+    }
   }
 `;
 export const TextDescription = styled(Typography)`
@@ -45,4 +47,8 @@ export const TextDescription = styled(Typography)`
   text-align: center;
   margin-top: 4px;
   line-height: 22px;
+
+  @media (max-width: 690px) {
+    font-size: 14px;
+  }
 `;

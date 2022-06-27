@@ -33,11 +33,11 @@ import {
  *   - cleanFilters() função que irá limpar os filtros clicados pelo usuário. Ela irá alterar o estado de checked de cada botão de true para false, tornando-os desabilitados.
  *
  *
- * @returns o componente retorna em tela as seleções dos filtros por características do pet e um botão de filtrar.
+ * @returns o componente retorna em tela os filtros por características do pet, um botão de filtrar e um botão de limpar.
  */
 
 const SideBar = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { setFilter } = useHotels();
 
   const [checkedButtonType, setCheckedButtonType] = useState(filterType);
@@ -79,10 +79,12 @@ const SideBar = () => {
   }
 
   function cleanFilters() {
+    reset();
     setCheckedButtonType(filterType);
     setCheckedButtonWeight(filterWeight);
     setCheckedButtonGender(filterGender);
     setCheckedButtonCastrated(filterCastrated);
+    handleFilters({});
   }
 
   return (
@@ -97,9 +99,9 @@ const SideBar = () => {
             <input
               onClick={() => controlButtonType("cat")}
               type="radio"
-              {...register("type")}
-              value="cat"
-              id="cat"
+              {...register("type")} //nome do parâmetro
+              value="cat" //nome do valor
+              id="cat" //para deixar clicar
             />
             <BoxButton checked={checkedButtonType.cat}>
               <TextButton>Gato</TextButton>

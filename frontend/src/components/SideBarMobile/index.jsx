@@ -34,11 +34,13 @@ import {
  *   - Demais funções de control seguem a mesma lógica.
  *   - handleFilters() função que irá chamar a função de atualização de estado setFilter e passar os dados do formulário preenchido após o click do botão Filtrar.
  *
- * @returns o componente retorna em tela as seleções dos filtros por características do pet, um botão de filtrar e um botão de fechar a caixa de filtros.
+ * - cleanFilters() função que irá limpar os filtros clicados pelo usuário. Ela irá alterar o estado de checked de cada botão de true para false, tornando-os desabilitados.
+ *
+ * @returns o componente retorna em tela os filtros por características do pet, um botão de filtrar, botão de limpar e um botão de fechar a caixa de filtros.
  */
 
 const SideBar = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { setFilter } = useHotels();
   const [open, setOpen] = useState(false);
 
@@ -81,10 +83,12 @@ const SideBar = () => {
   }
 
   function cleanFilters() {
+    reset();
     setCheckedButtonType(filterType);
     setCheckedButtonWeight(filterWeight);
     setCheckedButtonGender(filterGender);
     setCheckedButtonCastrated(filterCastrated);
+    handleFilters({});
   }
 
   return (

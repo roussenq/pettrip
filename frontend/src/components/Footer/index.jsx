@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "@mui/material";
-import { SectionFooter, TextSenac, BoxText, TextStudents } from "./styles";
+import { SectionFooter, BoxText, TextFooter } from "./styles";
 
 /**
  * Este componente se refere ao Footer da página.
@@ -11,8 +11,9 @@ const Footer = () => {
     <SectionFooter>
       <Container maxWidth="xl">
         <BoxText>
-          <TextSenac>Projeto TCS Senac Santa Catarina - Palhoça</TextSenac>
-          <TextStudents>Desenvolvido por Jhony e Kamilla</TextStudents>
+          <TextFooter>Projeto TCS Senac Santa Catarina - Palhoça</TextFooter>
+          <TextFooter>Dúvidas: pettriptcs@gmail.com</TextFooter>
+          <TextFooter>Desenvolvido por Jhony e Kamilla</TextFooter>
         </BoxText>
       </Container>
     </SectionFooter>

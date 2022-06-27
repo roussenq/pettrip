@@ -1,74 +1,46 @@
 import React from "react";
 import { Container } from "@mui/material";
-import {
-  TextCity,
-  CardContainer,
-  CardBox,
-  BoxImage,
-  BoxHotelDescritions,
-  Name,
-  Description,
-  BoxContact,
-  Address,
-  Contact,
-} from "./styles";
+import CircularProgress from "@mui/material/CircularProgress";
+import { WrapLoading, TextCity, CardContainer } from "./styles";
 import { useHotels } from "../../contextApi/useHotels";
 import HotelNotFound from "../HotelNotFound";
 import { useCities } from "../../contextApi/useCities";
+import ErrorComponent from "../ErrorComponent";
 import Pagination from "../Pagination";
+import ListHotels from "../ListHotels";
 
 /**
- * Este componente é responsável por renderizar na tela os hotéis.
+ * Este componente é responsável por renderizar na tela os hotéis ou os componentes HotelNotFound ou ErrorComponent.
  * Através do Context API useCities, este componente consegue ter acesso à cidade escolhida pelo usuário através da variável de estado city, para mostrar em tela.
- * Ainda, através do Context API useHotels, este componente consegue ter acesso aos hotéis que estão vindo da API através da variável de estado hotels.
- * @returns caso não venha nenhum hotel da API, é retornado o componente HotelNotFound.
+ * Ainda, através do Context API useHotels, este componente consegue ter acesso aos hotéis que estão vindo da API através da variável de estado hotels, também ao estado do isLoading e estado do erro.
  * @returns caso venha os hoteis da API, é renderizado em tela a cidade selecionada e os hoteis.
+ *  * @returns caso não venha nenhum hotel da API (status 400), é retornado o componente HotelNotFound.
+ *  * @returns caso ocorra um status de erro != 400, é retornado o componente ErrorComponent.
  */
 
 const CardHotel = () => {
-  const { hotels } = useHotels();
+  const { hotels, isLoading, error } = useHotels();
   const { city } = useCities();
 
-  if (hotels.length === 0) {
-    return <HotelNotFound />;
-  } else {
-    return (
-      <CardContainer>
-        <Container maxWidth="xl">
-          <TextCity>
-            Hotéis em: <span>{city.label} </span>
-          </TextCity>
-          <ul>
-            {hotels.map((hotel) => (
-              <li key={hotel.id}>
-                <CardBox>
-                  <BoxImage>
-                    <img src={hotel.image} alt="Imagem do Hotel" />
-                  </BoxImage>
-                  <BoxHotelDescritions>
-                    <Name>{hotel.name}</Name>
-                    <Description>{hotel.description}</Description>
-                    <BoxContact>
-                      <Address>
-                        {hotel.address.street}, nº {hotel.address.number}, {""}
-                        {hotel.address.district}, {hotel.address.city.city},{" "}
-                        {""}
-                        {hotel.address.city.state}, CEP {hotel.address.zipCode}
-                      </Address>
-                      <Contact>
-                        {hotel.email}, {hotel.numberPhone}
-                      </Contact>
-                    </BoxContact>
-                  </BoxHotelDescritions>
-                </CardBox>
-              </li>
-            ))}
-          </ul>
-        </Container>
-        <Pagination />
-      </CardContainer>
-    );
-  }
+  return (
+    <CardContainer>
+      <Container maxWidth="xl">
+        <TextCity>
+          Hotéis em: <span>{city.label} </span>
+        </TextCity>
+
+        {isLoading && (
+          <WrapLoading>
+            <CircularProgress color="success" />
+          </WrapLoading>
+        )}
+        {error && !isLoading && <ErrorComponent />}
+        {!error && !isLoading && hotels.length === 0 && <HotelNotFound />}
+        {!error && !isLoading && hotels.length > 0 && <ListHotels />}
+      </Container>
+      {!error && !isLoading && hotels.length > 0 && <Pagination />}
+    </CardContainer>
+  );
 };
 
 export default CardHotel;
