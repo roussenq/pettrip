@@ -1,7 +1,7 @@
 package com.project.pettrip.domain.model;
 
-import com.project.pettrip.api.dto.CitySummaryDTO;
 import com.project.pettrip.api.dto.CityDTO;
+import com.project.pettrip.api.dto.CitySummaryDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -21,23 +21,6 @@ public class City {
     @NotBlank
     private String state;
 
-    public City() {
-    }
-
-    public City(Long id) {
-        this.id = id;
-    }
-
-    public City(Long id, String city, String state) {
-        this.id = id;
-        this.city = city;
-        this.state = state;
-    }
-
-    public City(String city, String state) {
-        this.city = city;
-        this.state = state;
-    }
 
     public Long getId() {
         return id;
@@ -51,8 +34,16 @@ public class City {
         return city;
     }
 
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public String getState() {
         return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     @Override
@@ -63,16 +54,11 @@ public class City {
         return Objects.equals(getCity(), city1.getCity()) && Objects.equals(getState(), city1.getState());
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getCity(), getState());
-    }
+
 
     public CitySummaryDTO toCitySummaryDTO(){
         return new CitySummaryDTO(id, city, state);
     }
 
-    public CityDTO toCityDTO() {
-        return new CityDTO(id, city, state);
-    }
+
 }

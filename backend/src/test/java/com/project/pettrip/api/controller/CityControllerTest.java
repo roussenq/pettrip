@@ -1,8 +1,8 @@
 package com.project.pettrip.api.controller;
 
 import com.project.pettrip.domain.model.City;
-import com.project.pettrip.domain.service.CityService;
-import com.project.pettrip.domain.service.EstablishmentService;
+import com.project.pettrip.domain.service.ICityService;
+import com.project.pettrip.domain.service.IEstablishmentService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,17 +36,17 @@ class CityControllerTest {
     MockMvc mvc;
 
     @MockBean
-    private CityService cityService;
+    private ICityService cityService;
 
     @MockBean
-    private EstablishmentService establishmentService;
+    private IEstablishmentService establishmentService;
 
 
     @Test
     @DisplayName("Deve listar as cidades existentes no banco de dados")
     void listCities() throws Exception {
 
-        City city = new City(1L, "Florianópolis", "SC");
+        City city = createCity(1L, "Florianópolis", "SC");
 
         BDDMockito.given(cityService.listCities()).willReturn(List.of(city));
 
@@ -57,6 +57,14 @@ class CityControllerTest {
         mvc.perform(request)
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString(String.valueOf(city.getId()))));
+    }
+
+    private City createCity(Long id, String city, String state) {
+        City cityCreated = new City();
+        cityCreated.setId(id);
+        cityCreated.setCity(city);
+        cityCreated.setState(state);
+        return cityCreated;
     }
 
 }

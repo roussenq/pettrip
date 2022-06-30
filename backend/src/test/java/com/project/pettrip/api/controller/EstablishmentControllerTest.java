@@ -1,11 +1,9 @@
 package com.project.pettrip.api.controller;
-import com.project.pettrip.api.dto.AddressDTO;
-import com.project.pettrip.api.dto.CityDTO;
-import com.project.pettrip.api.dto.EstablishmentInputDTO;
-import com.project.pettrip.api.dto.EstablishmentSummaryDTO;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.project.pettrip.api.dto.*;
 import com.project.pettrip.domain.exception.BusinessException;
-import com.project.pettrip.domain.service.CityService;
-import com.project.pettrip.domain.service.EstablishmentService;
+import com.project.pettrip.domain.service.ICityService;
+import com.project.pettrip.domain.service.IEstablishmentService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,6 +23,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Arrays;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -43,10 +42,10 @@ class EstablishmentControllerTest {
     MockMvc mvc;
 
     @MockBean
-    private EstablishmentService establishmentService;
+    private IEstablishmentService establishmentService;
 
     @MockBean
-    private CityService cityService;
+    private ICityService cityService;
 
 
     @Test
@@ -119,15 +118,137 @@ class EstablishmentControllerTest {
                 .andExpect(jsonPath("title").value(mensageError));
     }
 
+    @Test
+    @DisplayName("Deve criar um estabelecimento com sucesso.")
+    public void createEstablishment() throws Exception {
+        EstablishmentCompleteDTO establishmentCompleteDTO = createNewEstablishmentCompleteDTO();
+
+        EstablishmentCompleteDTO savedEstablishment = createNewEstablishmentCompleteDTO();
+
+        BDDMockito.given(establishmentService.create(Mockito.any(EstablishmentCompleteDTO.class))).willReturn(savedEstablishment);
+        String json = new ObjectMapper().writeValueAsString(establishmentCompleteDTO);
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .post(ESTABLISHMENT_URI)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(json);
+
+        mvc.perform(request)
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("id").value(2L))
+                .andExpect(jsonPath("name").value(establishmentCompleteDTO.getName()));
+
+    }
+
+    @Test
+    @DisplayName("Deve deletar um estabelecimento com o id informado.")
+    void deleteEstablishment() throws Exception {
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .delete(ESTABLISHMENT_URI.concat("/1"));
+
+        mvc.perform(request)
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    @DisplayName("Deve retornar erro quando não houver estabelecimento com o id informado.")
+    void deleteInvalidEstablishment() throws Exception {
+
+        BDDMockito.given(establishmentService.findEstablishementById(Mockito.anyLong())).willThrow(EntityNotFoundException.class);
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .delete(ESTABLISHMENT_URI.concat("/88"));
+
+        mvc.perform(request)
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @DisplayName("")
+    void inactivateEstablishment() throws Exception {
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .put(ESTABLISHMENT_URI.concat("/1/inactivate"));
+
+        mvc.perform(request)
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    @DisplayName("")
+    void activateEstablishment() throws Exception {
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .put(ESTABLISHMENT_URI.concat("/1/activate"));
+
+        mvc.perform(request)
+                .andExpect(status().isNoContent());
+    }
+
     private EstablishmentSummaryDTO createEstablishmentSummaryDTO() {
-        return new EstablishmentSummaryDTO(
-                1L,
-                "cnpj",
-                "name",
-                "description" ,
-                "email",
-                "number phone",
-                "image", new AddressDTO(1L, "street", "number", "", "district",
-                new CityDTO(1L, "Florianópolis", "SC"),"zip code" ));
+
+        EstablishmentSummaryDTO establishmentSummaryDTO = new EstablishmentSummaryDTO();
+        establishmentSummaryDTO.setId(1L);
+        establishmentSummaryDTO.setCnpj("cnpj test");
+        establishmentSummaryDTO.setName("name test");
+        establishmentSummaryDTO.setDescription("description test");
+        establishmentSummaryDTO.setEmail("email test");
+        establishmentSummaryDTO.setNumberPhone("number phone test");
+        establishmentSummaryDTO.setImage("image test");
+        establishmentSummaryDTO.setAddress(createAddressDTO());
+
+        return establishmentSummaryDTO;
+    }
+
+    private AddressDTO createAddressDTO() {
+        AddressDTO addressDTO = new AddressDTO();
+        addressDTO.setId(1L);
+        addressDTO.setStreet("street");
+        addressDTO.setNumber("123");
+        addressDTO.setComplement("");
+        addressDTO.setDistrict("district");
+        addressDTO.setZipCode("zip code");
+        addressDTO.setCity(createCityDTO());
+        return addressDTO;
+    }
+
+    private CityDTO createCityDTO() {
+        CityDTO cityDTO = new CityDTO();
+        cityDTO.setId(1L);
+        cityDTO.setCity("Florianópolis");
+        cityDTO.setState("SC");
+        return cityDTO;
+    }
+
+    private EstablishmentCompleteDTO createNewEstablishmentCompleteDTO() {
+        EstablishmentCompleteDTO establishmentCompleteDTO = new EstablishmentCompleteDTO();
+        establishmentCompleteDTO.setId(2L);
+        establishmentCompleteDTO.setCnpj("cnpj test");
+        establishmentCompleteDTO.setName("name test");
+        establishmentCompleteDTO.setDescription("description test");
+        establishmentCompleteDTO.setEmail("email test");
+        establishmentCompleteDTO.setNumberPhone("number phone test");
+        establishmentCompleteDTO.setImage("image test");
+        establishmentCompleteDTO.setAddress(createAddressInputDTO());
+
+        return establishmentCompleteDTO;
+    }
+
+    private AddressInputDTO createAddressInputDTO() {
+        AddressInputDTO addressInputDTO = new AddressInputDTO();
+        addressInputDTO.setStreet("street");
+        addressInputDTO.setNumber("123");
+        addressInputDTO.setComplement("");
+        addressInputDTO.setDistrict("district");
+        addressInputDTO.setZipCode("zip code");
+        addressInputDTO.setCity(createCityInputDTO());
+        return addressInputDTO;
+    }
+
+    private CityInputDTO createCityInputDTO() {
+        CityInputDTO cityInputDTO = new CityInputDTO();
+        cityInputDTO.setCity("Florianópolis");
+        cityInputDTO.setState("SC");
+        return cityInputDTO;
     }
 }

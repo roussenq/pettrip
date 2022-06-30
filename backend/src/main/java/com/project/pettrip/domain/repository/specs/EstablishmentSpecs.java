@@ -1,6 +1,7 @@
 package com.project.pettrip.domain.repository.specs;
 
 import com.project.pettrip.api.dto.EstablishmentInputDTO;
+import com.project.pettrip.domain.exception.InvalidArgumentException;
 import com.project.pettrip.domain.model.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
@@ -50,11 +51,10 @@ public abstract class EstablishmentSpecs {
                 }
 
                 query.distinct(true);
-                //query.groupBy(root.get("id"));
 
                 return builder.and(predicates.toArray(new Predicate[0]));
-            }catch (IllegalArgumentException ex){
-                throw new IllegalArgumentException("Oops... Sinto muito. Não foi possível encontrar resultados com as " +
+            }catch (InvalidArgumentException ex){
+                throw new InvalidArgumentException("Oops... Sinto muito. Não foi possível encontrar resultados com as " +
                         "informações que você deseja, tente novamente.");
             }
         };
