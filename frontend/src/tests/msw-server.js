@@ -1,4 +1,5 @@
 import { setupServer } from "msw/node";
-import { handlers } from "./hotels/handlers";
+import { hotelHandler } from "./hotels/handlers";
+import { citieHandler } from "./cities/handlers";
 
-export const mswServer = setupServer(...handlers);
+export const mswServer = setupServer(...hotelHandler, ...citieHandler);

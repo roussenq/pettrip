@@ -47,4 +47,4 @@ export const hotelsHandlerExceptionErrorComponent = rest.get(
   async (req, res, ctx) => res(ctx.status(500))
 );
 
-export const handlers = [hotelsHandler];
+export const hotelHandler = [hotelsHandler];

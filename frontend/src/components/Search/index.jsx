@@ -36,6 +36,7 @@ const Search = () => {
   return (
     <BoxForm>
       <form
+        data-testid="form-submit-city"
         onSubmit={(event) => {
           event.preventDefault();
           handleSubmit();
@@ -43,6 +44,7 @@ const Search = () => {
       >
         <BoxSearch>
           <InputAutocomplete
+            data-testid="autocomplete"
             disablePortal
             id="combo-box-demo"
             options={citiesOptions}
