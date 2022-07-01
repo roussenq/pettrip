@@ -50,7 +50,7 @@ class EstablishmentControllerTest {
 
     @Test
     @DisplayName("Deve listar estabelecimentos com filtros encontrados.")
-    void findWithFilters() throws Exception {
+    void findWithFiltersTest() throws Exception {
 
         EstablishmentSummaryDTO establishmentSummaryDTO = createEstablishmentSummaryDTO();
 
@@ -74,7 +74,7 @@ class EstablishmentControllerTest {
 
     @Test
     @DisplayName("Deve listar estabelecimentos localizados em Florianópolis/SC quando não for informada a cidade.")
-    void findWithoutCityId() throws Exception {
+    void findWithoutCityIdTest() throws Exception {
 
         EstablishmentSummaryDTO establishmentSummaryDTO = createEstablishmentSummaryDTO();
 
@@ -98,7 +98,7 @@ class EstablishmentControllerTest {
 
     @Test
     @DisplayName("Deve retornar erro quando não houverem resultados com os filtros desejados.")
-    void findWithoutFilters() throws Exception {
+    void findWithoutFiltersTest() throws Exception {
         String mensageError = "Oops... Sinto muito. Não foi possível encontrar resultados com as informações " +
                 "que você deseja, tente novamente com uma localização próxima ao destino.";
 
@@ -120,7 +120,7 @@ class EstablishmentControllerTest {
 
     @Test
     @DisplayName("Deve criar um estabelecimento com sucesso.")
-    public void createEstablishment() throws Exception {
+    public void createEstablishmentTest() throws Exception {
         EstablishmentCompleteDTO establishmentCompleteDTO = createNewEstablishmentCompleteDTO();
 
         EstablishmentCompleteDTO savedEstablishment = createNewEstablishmentCompleteDTO();
@@ -143,7 +143,7 @@ class EstablishmentControllerTest {
 
     @Test
     @DisplayName("Deve deletar um estabelecimento com o id informado.")
-    void deleteEstablishment() throws Exception {
+    void deleteEstablishmentTest() throws Exception {
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .delete(ESTABLISHMENT_URI.concat("/1"));
@@ -154,7 +154,7 @@ class EstablishmentControllerTest {
 
     @Test
     @DisplayName("Deve retornar erro quando não houver estabelecimento com o id informado.")
-    void deleteInvalidEstablishment() throws Exception {
+    void deleteInvalidEstablishmentTest() throws Exception {
 
         BDDMockito.given(establishmentService.findEstablishementById(Mockito.anyLong())).willThrow(EntityNotFoundException.class);
 
@@ -166,8 +166,8 @@ class EstablishmentControllerTest {
     }
 
     @Test
-    @DisplayName("")
-    void inactivateEstablishment() throws Exception {
+    @DisplayName("Deve inativar um estabelecimento com sucesso.")
+    void inactivateEstablishmentTest() throws Exception {
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .put(ESTABLISHMENT_URI.concat("/1/inactivate"));
 
@@ -176,8 +176,8 @@ class EstablishmentControllerTest {
     }
 
     @Test
-    @DisplayName("")
-    void activateEstablishment() throws Exception {
+    @DisplayName("Deve ativar um estabelecimento com sucesso.")
+    void activateEstablishmentTest() throws Exception {
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .put(ESTABLISHMENT_URI.concat("/1/activate"));
 

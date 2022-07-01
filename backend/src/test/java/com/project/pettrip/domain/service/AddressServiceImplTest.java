@@ -42,30 +42,52 @@ class AddressServiceImplTest {
         this.addressService = new AddressServiceImpl(addressRepository, modelMapper, cityRepository);
     }
 
-//    @Test
-//    @DisplayName("Deve criar um endereço com sucesso")
-//    void create() {
-//        Address address = createAddressTest();
-//        Address addressReturn = address;
-//        City city = createCity();
-//        addressReturn.setId(1L);
-//
-//        BDDMockito.given(cityRepository.findByCity(Mockito.anyString())).willReturn(city);
-//        BDDMockito.given(modelMapper.map(Mockito.any(AddressDTO.class), Mockito.any())).willReturn(address);
-//        BDDMockito.given(addressRepository.save(address)).willReturn(addressReturn);
-//
-//        Address savedAddress = addressService.create(createAddressInputDTO());
-//
-//        assertThat(savedAddress.getId()).isNotNull();
-//    }
+    @Test
+    @DisplayName("Deve criar um endereço com cidade existente sucesso")
+    void createAddressWithExistentCity() {
+        Address address = createAddressTest();
+        Address addressReturn = address;
+        City city = createCity();
+        addressReturn.setId(1L);
+
+        BDDMockito.given(cityRepository.findByCity(Mockito.anyString())).willReturn(city);
+        BDDMockito.given(modelMapper.map(Mockito.any(AddressInputDTO.class), Mockito.any())).willReturn(address);
+        BDDMockito.given(addressRepository.save(address)).willReturn(addressReturn);
+
+        Address savedAddress = addressService.create(createAddressInputDTO());
+
+        assertThat(savedAddress.getId()).isNotNull();
+        Mockito.verify(addressRepository, Mockito.times(1)).save(address);
+    }
+
+    @Test
+    @DisplayName("Deve criar um endereço sem cidade existente sucesso")
+    void createAddressWithoutExistentCityTest() {
+        Address address = createAddressTest();
+        Address addressReturn = address;
+        City city = createCity();
+        City citySaved = city;
+        citySaved.setId(1L);
+        addressReturn.setId(1L);
+
+        BDDMockito.given(cityRepository.findByCity(Mockito.anyString())).willReturn(null);
+        BDDMockito.given(modelMapper.map(Mockito.any(AddressInputDTO.class), Mockito.any())).willReturn(address);
+        BDDMockito.given(modelMapper.map(Mockito.any(CityInputDTO.class), Mockito.any())).willReturn(city);
+        BDDMockito.given(cityRepository.save(Mockito.any(City.class))).willReturn(citySaved);
+
+        addressService.create(createAddressInputDTO());
+
+        Mockito.verify(cityRepository, Mockito.times(1)).save(city);
+        Mockito.verify(addressRepository, Mockito.times(1)).save(address);
+    }
 
     @Test
     @DisplayName("Deve verificar os gets de Address")
-    void verifyGetsAddress() {
+    void verifyGetsAddressTest() {
         Address address = createAddressTest();
         address.setId(1L);
         City city = createCity();
-
+        city.setId(1L);
 
         Assertions.assertEquals(1L, address.getId());
         Assertions.assertEquals("street", address.getStreet());
@@ -73,7 +95,7 @@ class AddressServiceImplTest {
         Assertions.assertEquals("", address.getComplement());
         Assertions.assertEquals("district", address.getDistrict());
         Assertions.assertEquals("zip code", address.getZipCode());
-        Assertions.assertEquals(city, address.getCity());
+        Assertions.assertEquals(city.getCity(), address.getCity().getCity());
     }
 
     private AddressInputDTO createAddressInputDTO() {
@@ -108,7 +130,6 @@ class AddressServiceImplTest {
 
     private City createCity() {
         City city = new City();
-        city.setId(1L);
         city.setCity("Florianópolis");
         city.setState("SC");
         return city;

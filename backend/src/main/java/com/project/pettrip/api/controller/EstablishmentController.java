@@ -53,9 +53,8 @@ public class EstablishmentController {
      * @return uma lista de
      */
     @ApiOperation("Obtains a establishment list.")
-    @ApiResponses({@ApiResponse(code = 200, message = "ok"),
-                    @ApiResponse(code = 400, message = "\"Oops... Sinto muito. Não foi possível encontrar resultados com " +
-                    "as informações que você deseja, tente novamente.\"")})
+    @ApiResponses({@ApiResponse(code = 200, message = "Ok"),
+                   @ApiResponse(code = 400, message = "\"Oops... Sinto muito. Não foi possível encontrar resultados com as informações que você deseja, tente novamente.\"")})
     @GetMapping
     public Page<EstablishmentSummaryDTO> findWithFilters(EstablishmentInputDTO establishmentInputDTO,
                                                          @PageableDefault(direction = Sort.Direction.ASC, size = 6) Pageable pageRequest){
@@ -82,6 +81,9 @@ public class EstablishmentController {
      * @param establishmentCompleteInputDTO EstablishmentCompleteDTO.
      * @return um EstablishmentCompleteDTO.
      */
+    @ApiOperation("Create a establishment.")
+    @ApiResponses({@ApiResponse(code = 201, message = "Created"),
+                   @ApiResponse(code = 400, message = "\"Já existe um estabelecimento cadastrado com esse CNPJ")})
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public EstablishmentCompleteDTO createEstablishment(@Valid @RequestBody EstablishmentCompleteDTO establishmentCompleteInputDTO){
@@ -93,6 +95,10 @@ public class EstablishmentController {
      *
      * @param establishmentId o id de um estabelecimento.
      */
+    @ApiOperation("Alter a establishment status to inactivate.")
+    @ApiResponses({@ApiResponse(code = 204, message = "No content"),
+                   @ApiResponse(code = 400, message = "\"Estabelecimento não pode ser inativado!"),
+                   @ApiResponse(code = 404, message = "\"Estabelecimento não encontrado!")})
     @PutMapping("{establishmentId}/inactivate")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void inactivate(@PathVariable Long establishmentId){
@@ -104,6 +110,10 @@ public class EstablishmentController {
      *
      * @param establishmentId o id de um estabelecimento.
      */
+    @ApiOperation("Alter a establishment status to activate.")
+    @ApiResponses({@ApiResponse(code = 204, message = "No content"),
+                   @ApiResponse(code = 400, message = "\"Estabelecimento não pode ser ativado!"),
+                   @ApiResponse(code = 404, message = "\"Estabelecimento não encontrado!")})
     @PutMapping("{establishmentId}/activate")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void activate(@PathVariable Long establishmentId){
@@ -115,6 +125,10 @@ public class EstablishmentController {
      *
      * @param establishmentId o id de um estabelecimento.
      */
+    @ApiOperation("Delete a establishment")
+    @ApiResponses({@ApiResponse(code = 204, message = "No content"),
+                   @ApiResponse(code = 400, message = "\"O Id do estabelecimento não pode ser nulo."),
+                   @ApiResponse(code = 404, message = "\"Estabelecimento não encontrado!")})
     @DeleteMapping("{establishmentId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long establishmentId){

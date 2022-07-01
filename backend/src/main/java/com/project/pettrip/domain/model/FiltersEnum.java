@@ -1,5 +1,8 @@
 package com.project.pettrip.domain.model;
 
+/**
+ * Classe para enums de Filters.
+ */
 public enum FiltersEnum {
 
     DOG("dog"), CAT("cat"),

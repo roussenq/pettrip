@@ -7,6 +7,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
+/**
+ * Classe para objetos do tipo City.
+ */
 @Entity
 @Table(name = "tb_city")
 public class City {
@@ -21,41 +24,30 @@ public class City {
     @NotBlank
     private String state;
 
-
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getCity() {
         return city;
     }
-
     public void setCity(String city) {
         this.city = city;
     }
-
     public String getState() {
         return state;
     }
-
     public void setState(String state) {
         this.state = state;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof City)) return false;
-        City city1 = (City) o;
-        return Objects.equals(getCity(), city1.getCity()) && Objects.equals(getState(), city1.getState());
-    }
-
-
-
+    /**
+     * Método que efetua a conversão de uma entidade City em uma instância de CitySummaryDTO.
+     *
+     * @return uma instância de CitySummaryDTO.
+     */
     public CitySummaryDTO toCitySummaryDTO(){
         return new CitySummaryDTO(id, city, state);
     }

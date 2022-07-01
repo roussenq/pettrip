@@ -52,7 +52,7 @@ class EstablishmentServiceImplTest {
 
     @Test
     @DisplayName("Deve apresentar página com lista de estabelecimentos que possuem os filtros informados")
-    void listByFilters() {
+    void listByFiltersTest() {
 
         Page<Establishment> page = createPage();
 
@@ -70,7 +70,7 @@ class EstablishmentServiceImplTest {
 
     @Test
     @DisplayName("Deve apresentar página com lista de estabelecimentos em Florianópolis quando não houver id da cidade nos filtros")
-    void listByFiltersWithoutCity() {
+    void listByFiltersWithoutCityTest() {
 
         Page<Establishment> page = createPage();
 
@@ -91,7 +91,7 @@ class EstablishmentServiceImplTest {
 
     @Test
     @DisplayName("Deve apresentar erro quando não encontrar estabelecimentos com os filtros informados")
-    void listByInexistentsFilters() {
+    void listByInexistentsFiltersTest() {
         Mockito.when(establishmentRepository.findAll(Mockito.any(Specification.class), Mockito.any(Pageable.class)))
                 .thenReturn(Page.empty());
 
@@ -100,7 +100,7 @@ class EstablishmentServiceImplTest {
 
     @Test
     @DisplayName("Deve criar um estabelecimento com sucesso.")
-    public void createEstablishmentSuccess(){
+    public void createEstablishmentSuccessTest(){
 
         Establishment establishment = createEstablishment();
         Establishment establishmentReturn = establishment;
@@ -127,11 +127,15 @@ class EstablishmentServiceImplTest {
         assertThat(establishmentSaved.getAddress().getZipCode()).isEqualTo("zip code");
         assertThat(establishmentSaved.getAddress().getCity().getCity()).isEqualTo("Florianópolis");
         assertThat(establishmentSaved.getAddress().getCity().getState()).isEqualTo("SC");
+        assertThat(establishmentSaved.getFilters().get(0).getType()).isEqualTo(FiltersEnum.DOG.getValue());
+        assertThat(establishmentSaved.getFilters().get(0).getWeight()).isEqualTo(FiltersEnum.TINY.getValue());
+        assertThat(establishmentSaved.getFilters().get(0).getCastrated()).isEqualTo(FiltersEnum.CASTRATED.getValue());
+        assertThat(establishmentSaved.getFilters().get(0).getGender()).isEqualTo(FiltersEnum.MALE.getValue());
     }
 
     @Test
     @DisplayName("Deve verificar os gets de Establishment")
-    public void verifyGetsestablishment(){
+    public void verifyGetsEstablishmentTest(){
         Establishment establishment = createEstablishment();
         establishment.setCreatedAt(OffsetDateTime.now());
         establishment.setUpdatedAt(OffsetDateTime.now());
@@ -149,12 +153,12 @@ class EstablishmentServiceImplTest {
         Assertions.assertFalse(establishment.getCreatedAt().isAfter(OffsetDateTime.now()));
         Assertions.assertFalse(establishment.getUpdatedAt().isAfter(OffsetDateTime.now()));
         Assertions.assertEquals(address.getId(), establishment.getAddress().getId());
-        Assertions.assertEquals(filters.get(0), establishment.getFilters().get(0));
+        Assertions.assertEquals(filters.get(0).getId(), establishment.getFilters().get(0).getId());
     }
 
     @Test
     @DisplayName("Deve retornar erro quando tentar cadastrar estabelecimento com CNPJ existente")
-    public void duplicatedCNPJ(){
+    public void duplicatedCNPJTest(){
         Establishment establishment = createEstablishment();
         BDDMockito.given(modelMapper.map(Mockito.any(EstablishmentCompleteDTO.class), Mockito.any())).willReturn(establishment);
         Mockito.when(establishmentRepository.findByCnpj(Mockito.anyString())).thenThrow(BusinessException.class);
@@ -165,7 +169,7 @@ class EstablishmentServiceImplTest {
 
     @Test
     @DisplayName("Deve verificar que dois estabelecimentos não são iguais.")
-    public void notEqualsEstablishment(){
+    public void notEqualsEstablishmentTest(){
         Establishment establishment = createEstablishment();
         establishment.setId(1L);
         Establishment establishment2 = createEstablishment();
@@ -176,19 +180,8 @@ class EstablishmentServiceImplTest {
     }
 
     @Test
-    @DisplayName("Deve verificar dois estabelecimentos são iguais.")
-    public void equalsEstablishment(){
-        Establishment establishment = createEstablishment();
-        establishment.setId(1L);
-        Establishment establishment2 = createEstablishment();
-        establishment2.setId(1L);
-
-        Assertions.assertEquals(establishment, establishment2);
-    }
-
-    @Test
     @DisplayName("Deve deletar um estabelecimento com sucesso")
-    public void deleteEstablishment(){
+    public void deleteEstablishmentTest(){
         Establishment establishment = createEstablishment();
         establishment.setId(1L);
 
@@ -199,7 +192,7 @@ class EstablishmentServiceImplTest {
 
     @Test
     @DisplayName("Deve ocorrer erro ao tentar deletar um estabelecimento")
-    public void deleteInvalidEstablishment(){
+    public void deleteInvalidEstablishmentTest(){
         Establishment establishment = createEstablishment();
 
         Assertions.assertThrows(InvalidArgumentException.class, () -> establishmentService.delete(establishment));
@@ -320,6 +313,7 @@ class EstablishmentServiceImplTest {
         establishmentCompleteDTO.setNumberPhone("number phone test");
         establishmentCompleteDTO.setImage("image test");
         establishmentCompleteDTO.setAddress(createAddressInputDTO());
+        establishmentCompleteDTO.setFilters(createFilterDTO());
 
         return establishmentCompleteDTO;
     }
@@ -341,5 +335,16 @@ class EstablishmentServiceImplTest {
         cityInputDTO.setState("SC");
         return cityInputDTO;
     }
+    private List<FilterDTO> createFilterDTO() {
+        FilterDTO filter = new FilterDTO();
+        filter.setType(FiltersEnum.DOG.getValue());
+        filter.setWeight(FiltersEnum.TINY.getValue());
+        filter.setCastrated(FiltersEnum.CASTRATED.getValue());
+        filter.setGender(FiltersEnum.MALE.getValue());
+        List<FilterDTO> filters = new ArrayList<>();
+        filters.add(filter);
+        return filters;
+    }
+
 
 }

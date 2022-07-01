@@ -44,7 +44,7 @@ class CityControllerTest {
 
     @Test
     @DisplayName("Deve listar as cidades existentes no banco de dados")
-    void listCities() throws Exception {
+    void listCitiesTest() throws Exception {
 
         City city = createCity(1L, "Florianópolis", "SC");
 

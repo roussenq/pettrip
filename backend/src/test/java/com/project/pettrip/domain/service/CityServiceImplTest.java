@@ -31,7 +31,7 @@ class CityServiceImplTest {
 
     @Test
     @DisplayName("Deve listar as cidades existentes no banco")
-    void listCitiesThatStartsWith() {
+    void listCitiesTest() {
         City city1 = createCity(1L, "cidadeTeste", "SC");
         City city2 = createCity(2L, "cidadeTeste", "PR");
 
@@ -46,8 +46,8 @@ class CityServiceImplTest {
     }
 
     @Test
-    @DisplayName("Deve retornar o id de Florianópolis")
-    void returnFlorianopolisId() {
+    @DisplayName("Deve retornar cidade de Florianópolis")
+    void returnCityWithFlorianopolisIdTest() {
         City city = createCity(1L, "Florianópolis", "SC");
 
         Mockito.when(cityRepository.findByCity(Mockito.any(String.class))).thenReturn(city);

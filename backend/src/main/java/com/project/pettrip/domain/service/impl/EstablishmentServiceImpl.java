@@ -20,7 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.OffsetDateTime;
-import java.util.Optional;
 
 import static com.project.pettrip.domain.repository.specs.EstablishmentSpecs.toSpec;
 
