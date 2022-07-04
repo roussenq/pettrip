@@ -9,11 +9,11 @@ import {
 
 /**
  * Este componente se refere a paginação do site.
- * Através do Context API useHotels, é possível ter acesso a paginação que vem da API, através da variável de estado pagination e a função que atualiza a variável, a setPagination.
+ * Através do Context API useHotels, é possível ter acesso a paginação que vem da API através da variável de estado pagination e a função que atualiza a variável, a setPagination.
  * funções:
- *   returnPage() retorna a página anterior
- *   nextPage() avança para a próxima página
- * @returns o componente retorna os botões de avançar e voltar a página
+ *   returnPage() retorna a página anterior.
+ *   nextPage() avança para a próxima página.
+ * @returns o componente retorna os botões de avançar e voltar a página.
  */
 
 function Pagination() {

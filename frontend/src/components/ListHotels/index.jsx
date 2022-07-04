@@ -13,8 +13,8 @@ import {
 } from "./styles";
 
 /**
- * Este componente renderiza os hotéis
- * @returns o componente retorna uma lista de hotéis
+ * Este componente renderiza a lista de hotéis na tela.
+ * @returns o componente retorna uma lista de hotéis.
  */
 
 const ListHotels = () => {

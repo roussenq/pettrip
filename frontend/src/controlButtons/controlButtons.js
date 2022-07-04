@@ -1,5 +1,5 @@
 /**
- * constante que possui o objeto referente ao estado.
+ * constante que possui o objeto referente ao estado inicial.
  */
 
 export const filterType = {

@@ -28,7 +28,7 @@ import {
 
 /**
  * Este componente é apresentado na versão responsivo e mobile. Ele contém um formulário do react hook form que armazena os dados dos filtros que o usuário clicou em tela.
- * Através do Context API useHotels, é possível ter acesso a função setFilter, que é de atualização da variável de estado.
+ * Através do Context API useHotels, é possível ter acesso a função setFilter, que atualiza a sua variável de estado.
  * * funções:
  *   - controlButtonType() irá chamar a função de atualização de estado setCheckedButtonTye e irá atualizar o estado, passando a propriedade true (clicado) para o radio button.
  *   - Demais funções de control seguem a mesma lógica.
