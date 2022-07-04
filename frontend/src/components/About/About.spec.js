@@ -16,7 +16,7 @@ describe("About component", () => {
     renderAll();
 
     expect(
-      screen.getByText("Encontre o hotel ideal para o seu amigão")
+      screen.getByText(/encontre o hotel ideal para o seu amigão/i)
     ).toBeInTheDocument();
   });
 

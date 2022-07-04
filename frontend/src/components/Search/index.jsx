@@ -48,9 +48,7 @@ const Search = () => {
             disablePortal
             id="combo-box-demo"
             options={citiesOptions}
-            onChange={(event, newValue) => {
-              setSelectedCity(newValue);
-            }}
+            onChange={(event, newValue) => setSelectedCity(newValue)}
             renderInput={(params) => (
               <TextField
                 {...params}

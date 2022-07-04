@@ -7,7 +7,7 @@ const mockTasks = {
       id: 1,
       cnpj: "11.222.333/0004-02",
       name: "Pet Hotel Astrodog Léo",
-      description: "Test",
+      description: "Teste de descrição",
       email: "hotel2@email.com",
       numberPhone: "(48) 99999-999",
       image: "teste.jpg",

@@ -1,49 +1,62 @@
 import React from "react";
-import { render, screen, fireEvent, within, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {
+  render,
+  screen,
+  fireEvent,
+  within,
+  waitFor,
+} from "@testing-library/react";
 import { HotelContextProvider } from "../../contextApi/useHotels";
 import { CitiesContextProvider } from "../../contextApi/useCities";
 import Search from ".";
 
-describe("Search component", () => {
-  it.only("send selected city", async () => {
-    render(
-      <CitiesContextProvider>
-        <HotelContextProvider>
-          <Search />
-        </HotelContextProvider>
-      </CitiesContextProvider>
-    );
+beforeEach(() => {
+  render(
+    <CitiesContextProvider>
+      <HotelContextProvider>
+        <Search />
+      </HotelContextProvider>
+    </CitiesContextProvider>
+  );
+});
 
+describe("Search component", () => {
+  it("should be select city onChange autocomplete", async () => {
     const autocomplete = screen.getByTestId("autocomplete");
     const input = within(autocomplete).getByPlaceholderText(
       "Para onde você está indo?"
     );
+
+    autocomplete.click();
     autocomplete.focus();
+
     fireEvent.change(input, { target: { value: 1 } });
-    fireEvent.keyDown(autocomplete, { key: "ArrowDown" });
-    fireEvent.keyDown(autocomplete, { key: "Enter" });
-    console.log(autocomplete.options);
-    expect();
+
+    await waitFor(async () => {
+      fireEvent.keyDown(autocomplete, { key: "ArrowDown" });
+      fireEvent.keyDown(autocomplete, { key: "Enter" });
+    });
+
+    expect(input.value).toEqual("1");
   });
 
-  it("teste form onSubmit", () => {
-    render(
-      <CitiesContextProvider>
-        <HotelContextProvider>
-          <Search />
-        </HotelContextProvider>
-      </CitiesContextProvider>
+  it("should be onSubmit form test", async () => {
+    const form = screen.getByTestId("form-submit-city");
+    const autocomplete = screen.getByTestId("autocomplete");
+    const input = within(autocomplete).getByPlaceholderText(
+      "Para onde você está indo?"
     );
 
-    const input = screen.getByTestId("input-newValue");
-    const form = screen.getByTestId("form-submit-city");
+    autocomplete.click();
+    autocomplete.focus();
 
-    userEvent.type(input, "Florianópolis");
-    fireEvent.submit(form);
+    fireEvent.change(input, { target: { value: 1 } });
 
-    screen.logTestingPlaygroundURL();
+    await waitFor(async () => {
+      fireEvent.keyDown(autocomplete, { key: "ArrowDown" });
+      fireEvent.keyDown(autocomplete, { key: "Enter" });
 
-    expect(screen.getByTestId("Florianópolis")).toBeTruthy();
+      form.submit();
+    });
   });
 });

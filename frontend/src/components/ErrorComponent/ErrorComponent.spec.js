@@ -16,7 +16,6 @@ describe("ErrorComponent component", () => {
         </HotelContextProvider>
       </CitiesContextProvider>
     );
-
     const errorDisplay = await screen.findByText("Desculpe.");
     expect(errorDisplay).toBeInTheDocument();
   });
