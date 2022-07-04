@@ -1,15 +1,15 @@
 package com.project.pettrip.domain.model;
 
-import com.project.pettrip.api.dto.AddressDTO;
-
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import java.util.Objects;
 
+/**
+ * Classe para objetos do tipo Address.
+ */
 @Entity
 @Table(name = "tb_address")
 public class Address {
@@ -41,69 +41,46 @@ public class Address {
     @Size(max = 8)
     private String zipCode;
 
-
-    public Address(){
-
-    }
-
-    public Address(String street, String number, String complement, String district, City city, String zipCode) {
-        this.street = street;
-        this.number = number;
-        this.complement = complement;
-        this.district = district;
-        this.city = city;
-        this.zipCode = zipCode;
-    }
-
     public Long getId() {
         return id;
     }
-
-    public Address(City city){
-        this.city = city;
+    public void setId(Long id) {
+        this.id = id;
     }
-
-
-    public City getCity() {
-        return city;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Address)) return false;
-        Address address = (Address) o;
-        return Objects.equals(id, address.id) && Objects.equals(city, address.city);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, city);
-    }
-
     public String getStreet() {
         return street;
     }
-
+    public void setStreet(String street) {
+        this.street = street;
+    }
     public String getNumber() {
         return number;
     }
-
+    public void setNumber(String number) {
+        this.number = number;
+    }
     public String getComplement() {
         return complement;
     }
-
+    public void setComplement(String complement) {
+        this.complement = complement;
+    }
     public String getDistrict() {
         return district;
     }
-
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+    public City getCity() {
+        return city;
+    }
+    public void setCity(City city) {
+        this.city = city;
+    }
     public String getZipCode() {
         return zipCode;
     }
-
-    public AddressDTO toAddressDTO() {
-        return new AddressDTO(id, street,number,complement,district,
-                city.toCityDTO(),
-                zipCode);
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 }

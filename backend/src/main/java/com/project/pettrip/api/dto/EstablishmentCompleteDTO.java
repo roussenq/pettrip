@@ -1,7 +1,8 @@
 package com.project.pettrip.api.dto;
 
-public class EstablishmentSummaryDTO {
+import java.util.List;
 
+public class EstablishmentCompleteDTO {
     private Long id;
     private String cnpj;
     private String name;
@@ -9,7 +10,8 @@ public class EstablishmentSummaryDTO {
     private String email;
     private String numberPhone;
     private String image;
-    private AddressDTO address;
+    private AddressInputDTO address;
+    private List<FilterDTO> filters;
 
     public Long getId() {
         return id;
@@ -67,11 +69,19 @@ public class EstablishmentSummaryDTO {
         this.image = image;
     }
 
-    public AddressDTO getAddress() {
+    public AddressInputDTO getAddress() {
         return address;
     }
 
-    public void setAddress(AddressDTO address) {
+    public void setAddress(AddressInputDTO address) {
         this.address = address;
+    }
+
+    public List<FilterDTO> getFilters() {
+        return filters;
+    }
+
+    public void setFilters(List<FilterDTO> filters) {
+        this.filters = filters;
     }
 }

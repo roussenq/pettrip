@@ -1,17 +1,12 @@
 package com.project.pettrip.api.dto;
 
-public class CityDTO {
+public class CityInputDTO {
 
-    private Long id;
     private String city;
     private String state;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public String getState() {
+        return state;
     }
 
     public String getCity() {
@@ -20,10 +15,6 @@ public class CityDTO {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getState() {
-        return state;
     }
 
     public void setState(String state) {

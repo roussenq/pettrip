@@ -1,22 +1,13 @@
 package com.project.pettrip.api.dto;
 
-public class AddressDTO {
+public class AddressInputDTO {
 
-    private Long id;
     private String street;
     private String number;
     private String complement;
     private String district;
-    private CityDTO city;
+    private CityInputDTO city;
     private String zipCode;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getStreet() {
         return street;
@@ -50,11 +41,11 @@ public class AddressDTO {
         this.district = district;
     }
 
-    public CityDTO getCity() {
+    public CityInputDTO getCity() {
         return city;
     }
 
-    public void setCity(CityDTO city) {
+    public void setCity(CityInputDTO city) {
         this.city = city;
     }
 

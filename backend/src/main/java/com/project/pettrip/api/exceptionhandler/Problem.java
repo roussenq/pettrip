@@ -1,4 +1,4 @@
-package com.project.pettrip.api.exception_handler;
+package com.project.pettrip.api.exceptionhandler;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

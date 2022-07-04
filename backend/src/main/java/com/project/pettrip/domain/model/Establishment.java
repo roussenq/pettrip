@@ -1,6 +1,6 @@
 package com.project.pettrip.domain.model;
 
-import com.project.pettrip.api.dto.EstablishmentSummaryDTO;
+import com.project.pettrip.domain.exception.BusinessException;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -12,6 +12,9 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Classe para objetos do tipo Establishment.
+ */
 @Entity
 @Table(name = "tb_establishment")
 public class Establishment {
@@ -60,74 +63,119 @@ public class Establishment {
 
     private String image;
 
-    public Establishment(){
-
-    }
-
-    public Establishment(String cnpj, String name, String description, String email, String numberPhone, Address address, List<Filters> filters, String image) {
-        this.cnpj = cnpj;
-        this.name = name;
-        this.description = description;
-        this.email = email;
-        this.numberPhone = numberPhone;
-        this.address = address;
-        this.filters = filters;
-        this.image = image;
-    }
-
-    public Establishment(City city, List<Filters> filters) {
-        this.address = new Address(city);
-        this.filters = filters;
-    }
-
-    public Establishment(Address address, List<Filters> filters) {
-        this.address = address;
-        this.filters = filters;
-    }
-
-    public EstablishmentSummaryDTO toEstablishmentSummayDTO(){
-        return new EstablishmentSummaryDTO(id, cnpj, name, description, email, numberPhone, image, address.toAddressDTO());
-    }
-
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
+    public String getCnpj() {
+        return cnpj;
+    }
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getNumberPhone() {
+        return numberPhone;
+    }
+    public void setNumberPhone(String numberPhone) {
+        this.numberPhone = numberPhone;
+    }
     public StatusEstablishment getStatus() {
         return status;
     }
-
+    public void setStatus(StatusEstablishment status) {
+        this.status = status;
+    }
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+    public OffsetDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+    public void setUpdatedAt(OffsetDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
     public Address getAddress() {
         return address;
     }
-
-    public String getImage() {
-        return image;
+    public void setAddress(Address address) {
+        this.address = address;
     }
-
     public List<Filters> getFilters() {
         return filters;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Establishment)) return false;
-        Establishment that = (Establishment) o;
-        return Objects.equals(id, that.id) && Objects.equals(cnpj, that.cnpj);
+    public void setFilters(List<Filters> filters) {
+        this.filters = filters;
+    }
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, cnpj);
+    /**
+     * Método que altera o status do estabelecimento para inativo.
+     * @throws BusinessException
+     */
+    public void inactivate() {
+        if (canInactivate()){
+            this.setStatus(StatusEstablishment.INACTIVE);
+            this.setUpdatedAt(OffsetDateTime.now());
+        }else{
+            throw new BusinessException("Estabelecimento não pode ser inativado!");
+        }
     }
 
-    public void setStatus(StatusEstablishment status) {
-        this.status = status;
+    /**
+     * Método que verifica se um estabelecimento pode ter o status inativado.
+     * @return 'true' se o status for ativo.
+     */
+    private boolean canInactivate() {
+        return StatusEstablishment.ACTIVE.equals(getStatus());
+    }
+
+    /**
+     * Método que altera o status do estabelecimento para ativo.
+     * @throws BusinessException
+     */
+    public void activate() {
+        if (canActivate()){
+            this.setStatus(StatusEstablishment.ACTIVE);
+            this.setUpdatedAt(OffsetDateTime.now());
+        }else{
+            throw new BusinessException("Estabelecimento não pode ser ativado!");
+        }
+    }
+
+    /**
+     * Método que verifica se um estabelecimento pode ter o status ativado.
+     * @return 'true' se o status for inativo.
+     */
+    private boolean canActivate() {
+        return StatusEstablishment.INACTIVE.equals(getStatus());
     }
 
 }

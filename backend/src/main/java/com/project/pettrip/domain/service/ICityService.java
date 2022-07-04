@@ -4,7 +4,7 @@ import com.project.pettrip.domain.model.City;
 
 import java.util.List;
 
-public interface CityService {
+public interface ICityService {
 
     List<City> listCities();
 

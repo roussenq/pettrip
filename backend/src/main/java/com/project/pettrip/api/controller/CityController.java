@@ -3,7 +3,7 @@ package com.project.pettrip.api.controller;
 
 import com.project.pettrip.api.dto.CitySummaryDTO;
 import com.project.pettrip.domain.model.City;
-import com.project.pettrip.domain.service.CityService;
+import com.project.pettrip.domain.service.ICityService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,16 +13,30 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Classe controller responsável pelo gerenciamento dos endpoints de cidades.
+ */
 @RestController()
 @RequestMapping("/cities")
 public class CityController {
 
-    private final CityService cityService;
+    private final ICityService cityService;
 
-    public CityController(CityService cityService) {
+    /**
+     * Construtor de instanciação de CityController.
+     *
+     * @param cityService referência à interface ICityService.
+     */
+    public CityController(ICityService cityService) {
         this.cityService = cityService;
     }
 
+    /**
+     * Endpoint para obter uma lista de todas cidades cadastradas no banco de dados.
+     *
+     * @return uma lista de CitySummaryDTO.
+     *
+     */
     @ApiOperation("Obtains list of cities existing in database.")
     @ApiResponse(code = 200, message = "ok")
     @GetMapping
