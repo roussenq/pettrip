@@ -3,6 +3,8 @@
 <p align="center">O Pet Trip é um projeto acadêmico desenvolvido para a conclusão do curso superior em Análise e Desenvolvimento de Sistemas.
 Com o intuito de agregar valor ao mercado Pet, o objetivo do site Pet Trip é facilitar uma busca filtrada de hotéis de pet, podendo ser realizada por região ou por características do pet.</p>
 
+:rocket: [Pet Trip](https://pettrip-tcs.netlify.app/)
+
 :technologist: Desenvolvedora Frontend: [Kamilla C. Faust](https://github.com/kamillafaust)
 
 :man_technologist: Desenvolvedor Backend: [Jhony Vill da Silva](https://github.com/jhonyvill)
@@ -40,13 +42,4 @@ Com o intuito de agregar valor ao mercado Pet, o objetivo do site Pet Trip é fa
    ```
    npm run test
    ```
-   
-<h2> :sparkles: Rodar o projeto Backend:</h2>
 
-  1. Com o projeto clonado, entrar no projeto backend:
-  
-   ```
-   cd backend
-   ```
-  
-  2. Na IDE de sua preferência, configurar o jdk para rodar o jdk11.
