@@ -12,7 +12,7 @@ import { useHotels } from "../../contextApi/useHotels";
  *    handleSubmit() essa função irá setar a cidade selecionada pelo usuário e também a página 0.
  * useEffect é o hook que irá fazer a chamada da função handleSearchCities assim que o componente Search for carregado em tela.
  *
- * @returns o componente retorna um campo de busca das cidades e um botão de busca
+ * @returns o componente retorna um campo de busca das cidades e um botão de buscar.
  */
 
 const Search = () => {
@@ -36,6 +36,7 @@ const Search = () => {
   return (
     <BoxForm>
       <form
+        data-testid="form-submit-city"
         onSubmit={(event) => {
           event.preventDefault();
           handleSubmit();
@@ -43,12 +44,11 @@ const Search = () => {
       >
         <BoxSearch>
           <InputAutocomplete
+            data-testid="autocomplete"
             disablePortal
             id="combo-box-demo"
             options={citiesOptions}
-            onChange={(event, newValue) => {
-              setSelectedCity(newValue);
-            }}
+            onChange={(event, newValue) => setSelectedCity(newValue)}
             renderInput={(params) => (
               <TextField
                 {...params}

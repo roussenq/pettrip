@@ -12,7 +12,7 @@ import {
 
 /**
  * Este componente se refere ao cabeçalho do site.
- * @returns o componente retorna a logo, o título do site e uma âncora para o site de cadastro de hotéis
+ * @returns o componente retorna a logo, o título do site e uma âncora para o site de cadastro de hotéis.
  */
 
 const Header = () => {

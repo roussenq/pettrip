@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">41.37% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/29</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">41.37% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/29</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -102,23 +102,23 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
@@ -126,28 +126,28 @@ import { Container } from "@mui/material";
 import { SectionContainer, BoxText, Text, TextDescription } from "./styles";
 &nbsp;
 /**
- * Este componente se refere aos hotéis não encontrados.
- * @returns o componente retorna uma imagem euma mensagem de hotéis não encontrados.
+ * Este componente renderiza na tela uma mensagem de erro caso o status code seja 400
+ * @returns o componente retorna uma imagem e uma mensagem de hotéis não encontrados.
  */
 &nbsp;
-const HotelNotFound = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;SectionContainer&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Container maxWidth="xl"&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;BoxText&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;Text&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;span&gt;Oops!&lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/Text&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;Text&gt;Sinto muito.&lt;/Text&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;TextDescription&gt;</span>
-<span class="cstat-no" title="statement not covered" >            Não foi possível encontrar hotéis com as buscas que você deseja,</span>
-<span class="cstat-no" title="statement not covered" >            tente novamente.</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/TextDescription&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/BoxText&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/Container&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/SectionContainer&gt;</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+const HotelNotFound = () =&gt; {
+  return (
+    &lt;SectionContainer&gt;
+      &lt;Container maxWidth="xl"&gt;
+        &lt;BoxText&gt;
+          &lt;Text&gt;
+            &lt;span&gt;Oops!&lt;/span&gt;
+          &lt;/Text&gt;
+          &lt;Text&gt;Sinto muito.&lt;/Text&gt;
+          &lt;TextDescription&gt;
+            Não foi possível encontrar hotéis com as buscas que você deseja,
+            tente novamente.
+          &lt;/TextDescription&gt;
+        &lt;/BoxText&gt;
+      &lt;/Container&gt;
+    &lt;/SectionContainer&gt;
+  );
+};
 &nbsp;
 export default HotelNotFound;
 &nbsp;</pre></td></tr></table></pre>
@@ -157,7 +157,7 @@ export default HotelNotFound;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Jun 27 2022 14:59:06 GMT-0300 (Horário Padrão de Brasília)
+                at Mon Jul 04 2022 10:00:54 GMT-0300 (Horário Padrão de Brasília)
             </div>
         <script src="../../../prettify.js"></script>
         <script>
