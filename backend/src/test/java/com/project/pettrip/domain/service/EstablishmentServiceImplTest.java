@@ -1,7 +1,7 @@
 package com.project.pettrip.domain.service;
+
 import com.project.pettrip.api.dto.*;
 import com.project.pettrip.domain.exception.BusinessException;
-import com.project.pettrip.domain.exception.InvalidArgumentException;
 import com.project.pettrip.domain.model.*;
 import com.project.pettrip.domain.repository.EstablishmentRepository;
 import com.project.pettrip.domain.service.impl.EstablishmentServiceImpl;
@@ -14,7 +14,10 @@ import org.mockito.BDDMockito;
 import org.mockito.Mockito;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.domain.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -23,7 +26,6 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -59,7 +61,10 @@ class EstablishmentServiceImplTest {
         Mockito.when(establishmentRepository.findAll(Mockito.any(Specification.class), Mockito.any(Pageable.class)))
                 .thenReturn(page);
 
-        Page<EstablishmentSummaryDTO> establishmentPage = establishmentService.findByFilters(createSearchFilter(), page.getPageable());
+        EstablishmentInputDTO searchFilters = createSearchFilter();
+        searchFilters.setCityId(1L);
+
+        Page<EstablishmentSummaryDTO> establishmentPage = establishmentService.findByFilters(searchFilters, page.getPageable());
 
         Assertions.assertNotNull(establishmentPage);
         Assertions.assertEquals(6, establishmentPage.getSize());
@@ -79,7 +84,7 @@ class EstablishmentServiceImplTest {
 
         BDDMockito.given(modelMapper.map(Mockito.any(), Mockito.any())).willReturn(createEstablishmentSummaryDTO());
 
-        Page<EstablishmentSummaryDTO> establishmentPage = establishmentService.findByFilters(createSearchFilterWhitoutCityId(), page.getPageable());
+        Page<EstablishmentSummaryDTO> establishmentPage = establishmentService.findByFilters(createSearchFilter(), page.getPageable());
 
         Assertions.assertNotNull(establishmentPage);
         Assertions.assertEquals(6, establishmentPage.getSize());
@@ -195,7 +200,7 @@ class EstablishmentServiceImplTest {
     public void deleteInvalidEstablishmentTest(){
         Establishment establishment = createEstablishment();
 
-        Assertions.assertThrows(InvalidArgumentException.class, () -> establishmentService.delete(establishment));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> establishmentService.delete(establishment));
 
         Mockito.verify(establishmentRepository, Mockito.never()).delete(establishment);
     }
@@ -209,18 +214,12 @@ class EstablishmentServiceImplTest {
 
 
     private EstablishmentInputDTO createSearchFilter() {
-        return new EstablishmentInputDTO(1L,
-                FiltersEnum.DOG.getValue(),
-                FiltersEnum.TINY.getValue(),
-                FiltersEnum.CASTRATED.getValue(),
-                FiltersEnum.MALE.getValue());
-    }
-    private EstablishmentInputDTO createSearchFilterWhitoutCityId() {
-        return new EstablishmentInputDTO(null,
-                FiltersEnum.DOG.getValue(),
-                FiltersEnum.TINY.getValue(),
-                FiltersEnum.CASTRATED.getValue(),
-                FiltersEnum.MALE.getValue());
+        EstablishmentInputDTO establishmentInputDTO = new EstablishmentInputDTO();
+        establishmentInputDTO.setType(FiltersEnum.DOG.getValue());
+        establishmentInputDTO.setWeight(FiltersEnum.TINY.getValue());
+        establishmentInputDTO.setCastrated(FiltersEnum.CASTRATED.getValue());
+        establishmentInputDTO.setGender(FiltersEnum.MALE.getValue());
+        return establishmentInputDTO;
     }
 
     private Establishment createEstablishment() {

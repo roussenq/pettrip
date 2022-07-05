@@ -1,7 +1,6 @@
 package com.project.pettrip.api.exceptionhandler;
 
 import com.project.pettrip.domain.exception.BusinessException;
-import com.project.pettrip.domain.exception.InvalidArgumentException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +13,9 @@ import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Classe para gerenciamento das exceções, determinando qual o comportamento deverá seguir.
+ */
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -23,8 +25,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         Problem problem = getProblem(ex, status);
         return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
     }
-    @ExceptionHandler(InvalidArgumentException.class)
-    public ResponseEntity<Object> handleBusiness(InvalidArgumentException ex, WebRequest request){
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Object> handleIllegalArgument(IllegalArgumentException ex, WebRequest request){
         HttpStatus status = HttpStatus.BAD_REQUEST;
         Problem problem = getProblem(ex, status);
         return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);

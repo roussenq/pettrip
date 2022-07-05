@@ -41,10 +41,6 @@ public class CityController {
     @ApiResponse(code = 200, message = "ok")
     @GetMapping
     public List<CitySummaryDTO> findAllCities(){
-
-        List<City> cities = cityService.listCities();
-        return cities.stream().map(City::toCitySummaryDTO)
-                .sorted((o1, o2) -> o1.getCityAndState().compareToIgnoreCase(o2.getCityAndState()))
-                .collect(Collectors.toList());
+        return cityService.listCities();
     }
 }

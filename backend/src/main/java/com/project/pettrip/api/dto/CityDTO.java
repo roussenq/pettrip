@@ -1,5 +1,8 @@
 package com.project.pettrip.api.dto;
 
+/**
+ * DTO de City.
+ */
 public class CityDTO {
 
     private Long id;

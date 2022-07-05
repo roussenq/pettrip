@@ -1,17 +1,30 @@
 package com.project.pettrip.domain.repository.specs;
 
 import com.project.pettrip.api.dto.EstablishmentInputDTO;
-import com.project.pettrip.domain.exception.InvalidArgumentException;
 import com.project.pettrip.domain.model.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
 
-import javax.persistence.criteria.*;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe abstrada com implementação da criação de consulta dinâmica.
+ */
 public abstract class EstablishmentSpecs {
 
+    /**
+     * Método que cria a query para consulta dinâmica, verificando quais campos
+     * de EstablishmentInputDTO estão preenchidos para montar a query com base nesses argumentos.
+     *
+     * @param dto classe EstablishmentInputDTO.
+     * @return um Specification de Establishment.
+     * @throws IllegalArgumentException
+     */
     public static Specification<Establishment> toSpec(EstablishmentInputDTO dto) {
         return (root, query, builder) ->{
             try {
@@ -53,11 +66,10 @@ public abstract class EstablishmentSpecs {
                 query.distinct(true);
 
                 return builder.and(predicates.toArray(new Predicate[0]));
-            }catch (InvalidArgumentException ex){
-                throw new InvalidArgumentException("Oops... Sinto muito. Não foi possível encontrar resultados com as " +
-                        "informações que você deseja, tente novamente.");
+            }catch (IllegalArgumentException ex){
+                throw new IllegalArgumentException("Oops... Sinto muito. Não foi possível encontrar hotéis com as buscas" +
+                                                    " que você deseja, tente novamente.");
             }
         };
     }
-
 }

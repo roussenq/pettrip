@@ -50,29 +50,20 @@ public class EstablishmentController {
      *
      * @param establishmentInputDTO EstablishmentInputDTO
      * @param pageRequest           Pageable
-     * @return uma lista de
+     * @return uma lista de estabelecimentos.
      */
     @ApiOperation("Obtains a establishment list.")
     @ApiResponses({@ApiResponse(code = 200, message = "Ok"),
-                   @ApiResponse(code = 400, message = "\"Oops... Sinto muito. Não foi possível encontrar resultados com as informações que você deseja, tente novamente.\"")})
+                   @ApiResponse(code = 400, message = "\"Oops... Sinto muito. Não foi possível encontrar hotéis com as " +
+                                                        "buscas que você deseja, tente novamente.\"")})
     @GetMapping
     public Page<EstablishmentSummaryDTO> findWithFilters(EstablishmentInputDTO establishmentInputDTO,
                                                          @PageableDefault(direction = Sort.Direction.ASC, size = 6) Pageable pageRequest){
 
         if (establishmentInputDTO.getCityId() == null){
-            establishmentInputDTO = createDefaultInputDTO(establishmentInputDTO);
+            establishmentInputDTO.setCityId(cityService.getDefaultCityId());
         }
         return establishmentService.findByFilters(establishmentInputDTO, pageRequest);
-    }
-
-    private EstablishmentInputDTO createDefaultInputDTO(EstablishmentInputDTO establishmentInputDTO) {
-        EstablishmentInputDTO defaultInputDTO = new EstablishmentInputDTO(
-                cityService.getDefaultCityId(),
-                establishmentInputDTO.getType(),
-                establishmentInputDTO.getWeight(),
-                establishmentInputDTO.getCastrated(),
-                establishmentInputDTO.getGender());
-        return defaultInputDTO;
     }
 
     /**

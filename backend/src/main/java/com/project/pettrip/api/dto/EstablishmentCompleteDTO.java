@@ -2,6 +2,9 @@ package com.project.pettrip.api.dto;
 
 import java.util.List;
 
+/**
+ * DTO de Establishment.
+ */
 public class EstablishmentCompleteDTO {
     private Long id;
     private String cnpj;

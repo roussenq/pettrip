@@ -1,5 +1,6 @@
 package com.project.pettrip.domain.service;
 
+import com.project.pettrip.api.dto.CitySummaryDTO;
 import com.project.pettrip.domain.model.City;
 import com.project.pettrip.domain.repository.CityRepository;
 import com.project.pettrip.domain.service.impl.CityServiceImpl;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -37,7 +39,7 @@ class CityServiceImplTest {
 
         Mockito.when(cityRepository.findAll()).thenReturn(List.of(city1, city2));
 
-        List<City> results = cityService.listCities();
+        List<CitySummaryDTO> results = cityService.listCities();
 
         Assertions.assertNotNull(results);
         Assertions.assertEquals(2, results.size());

@@ -1,5 +1,8 @@
 package com.project.pettrip.api.dto;
 
+/**
+ * DTO de Address.
+ */
 public class AddressDTO {
 
     private Long id;

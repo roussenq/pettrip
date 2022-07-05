@@ -32,14 +32,14 @@ class AddressServiceImplTest {
     private AddressRepository addressRepository;
 
     @MockBean
-    private CityRepository cityRepository;
+    private ICityService cityService;
 
     @MockBean
     private ModelMapper modelMapper;
 
     @BeforeEach
     void setUp() {
-        this.addressService = new AddressServiceImpl(addressRepository, modelMapper, cityRepository);
+        this.addressService = new AddressServiceImpl(addressRepository, modelMapper, cityService);
     }
 
     @Test
@@ -50,7 +50,7 @@ class AddressServiceImplTest {
         City city = createCity();
         addressReturn.setId(1L);
 
-        BDDMockito.given(cityRepository.findByCity(Mockito.anyString())).willReturn(city);
+        BDDMockito.given(cityService.findByCity(Mockito.anyString())).willReturn(city);
         BDDMockito.given(modelMapper.map(Mockito.any(AddressInputDTO.class), Mockito.any())).willReturn(address);
         BDDMockito.given(addressRepository.save(address)).willReturn(addressReturn);
 
@@ -70,14 +70,14 @@ class AddressServiceImplTest {
         citySaved.setId(1L);
         addressReturn.setId(1L);
 
-        BDDMockito.given(cityRepository.findByCity(Mockito.anyString())).willReturn(null);
+        BDDMockito.given(cityService.findByCity(Mockito.anyString())).willReturn(null);
         BDDMockito.given(modelMapper.map(Mockito.any(AddressInputDTO.class), Mockito.any())).willReturn(address);
         BDDMockito.given(modelMapper.map(Mockito.any(CityInputDTO.class), Mockito.any())).willReturn(city);
-        BDDMockito.given(cityRepository.save(Mockito.any(City.class))).willReturn(citySaved);
+        BDDMockito.given(cityService.create(Mockito.any(City.class))).willReturn(citySaved);
 
         addressService.create(createAddressInputDTO());
 
-        Mockito.verify(cityRepository, Mockito.times(1)).save(city);
+        Mockito.verify(cityService, Mockito.times(1)).create(city);
         Mockito.verify(addressRepository, Mockito.times(1)).save(address);
     }
 
