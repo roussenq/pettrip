@@ -23,11 +23,11 @@ Com o intuito de agregar valor ao mercado Pet, o objetivo do site Pet Trip é fa
 
 <h2> :sparkles: Rodar o projeto Frontend:</h2>
 
-  1. Com o projeto clonado, entrar no projeto e instalar as dependências:
+  1. Com o projeto clonado, entrar no projeto frontend e instalar as dependências:
   
    ```
    cd frontend
-   npm install
+   npm ci install
    ```
    
   2. Executar o projeto:
