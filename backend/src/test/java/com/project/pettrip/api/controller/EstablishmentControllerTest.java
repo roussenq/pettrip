@@ -136,7 +136,6 @@ class EstablishmentControllerTest {
 
         mvc.perform(request)
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("id").value(2L))
                 .andExpect(jsonPath("name").value(establishmentCompleteDTO.getName()));
 
     }
@@ -222,7 +221,6 @@ class EstablishmentControllerTest {
 
     private EstablishmentCompleteDTO createNewEstablishmentCompleteDTO() {
         EstablishmentCompleteDTO establishmentCompleteDTO = new EstablishmentCompleteDTO();
-        establishmentCompleteDTO.setId(2L);
         establishmentCompleteDTO.setCnpj("cnpj test");
         establishmentCompleteDTO.setName("name test");
         establishmentCompleteDTO.setDescription("description test");

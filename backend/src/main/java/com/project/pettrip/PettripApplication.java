@@ -7,10 +7,9 @@ import org.springframework.context.annotation.Bean;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * The type Pettrip application.
+ * Classe de ponto de início da aplicação Pet Trip.
  */
 @SpringBootApplication
-/*@EnableSwagger2*/
 public class PettripApplication {
 
     /**

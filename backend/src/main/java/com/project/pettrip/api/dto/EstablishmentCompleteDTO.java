@@ -6,7 +6,7 @@ import java.util.List;
  * DTO de Establishment.
  */
 public class EstablishmentCompleteDTO {
-    private Long id;
+
     private String cnpj;
     private String name;
     private String description;
@@ -15,14 +15,7 @@ public class EstablishmentCompleteDTO {
     private String image;
     private AddressInputDTO address;
     private List<FilterDTO> filters;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    
 
     public String getCnpj() {
         return cnpj;

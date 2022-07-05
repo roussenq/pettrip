@@ -95,7 +95,7 @@ public class EstablishmentServiceImpl implements IEstablishmentService {
      * @throws BusinessException
      */
     private void validateEstablishment(Establishment establishment) {
-        boolean existentCNPJ = establishmentRepository.findByCnpj(establishment.getCnpj())
+        boolean existentCNPJ = establishmentRepository.findByCnpj(establishment.getCnpj().replaceAll("[./-]", "").trim())
                 .stream().anyMatch(estabelecimentoExistente -> !(estabelecimentoExistente.equals(establishment)));
         if (existentCNPJ){
             throw new BusinessException("Já existe um estabelecimento cadastrado com esse CNPJ.");

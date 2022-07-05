@@ -118,7 +118,6 @@ class EstablishmentServiceImplTest {
 
         EstablishmentCompleteDTO establishmentSaved = establishmentService.create(createNewEstablishmentCompleteDTO());
 
-        assertThat(establishmentSaved.getId()).isNotNull();
         assertThat(establishmentSaved.getName()).isEqualTo("name test");
         assertThat(establishmentSaved.getCnpj()).isEqualTo("cnpj test");
         assertThat(establishmentSaved.getDescription()).isEqualTo("description test");
@@ -304,7 +303,6 @@ class EstablishmentServiceImplTest {
 
     private EstablishmentCompleteDTO createNewEstablishmentCompleteDTO() {
         EstablishmentCompleteDTO establishmentCompleteDTO = new EstablishmentCompleteDTO();
-        establishmentCompleteDTO.setId(2L);
         establishmentCompleteDTO.setCnpj("cnpj test");
         establishmentCompleteDTO.setName("name test");
         establishmentCompleteDTO.setDescription("description test");

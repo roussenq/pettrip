@@ -86,7 +86,7 @@ public class EstablishmentController {
      *
      * @param establishmentId o id de um estabelecimento.
      */
-    @ApiOperation("Alter a establishment status to inactivate.")
+    @ApiOperation("Alter a establishment status to inactive.")
     @ApiResponses({@ApiResponse(code = 204, message = "No content"),
                    @ApiResponse(code = 400, message = "\"Estabelecimento não pode ser inativado!"),
                    @ApiResponse(code = 404, message = "\"Estabelecimento não encontrado!")})
@@ -101,7 +101,7 @@ public class EstablishmentController {
      *
      * @param establishmentId o id de um estabelecimento.
      */
-    @ApiOperation("Alter a establishment status to activate.")
+    @ApiOperation("Alter a establishment status to active.")
     @ApiResponses({@ApiResponse(code = 204, message = "No content"),
                    @ApiResponse(code = 400, message = "\"Estabelecimento não pode ser ativado!"),
                    @ApiResponse(code = 404, message = "\"Estabelecimento não encontrado!")})
