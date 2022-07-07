@@ -45,8 +45,7 @@ export const BoxQuestion = styled(Box)`
   align-items: center;
 
   img {
-    width: 28px;
-    margin-right: 12px;
+    width: 80px;
   }
 
   @media (max-width: 400px) {

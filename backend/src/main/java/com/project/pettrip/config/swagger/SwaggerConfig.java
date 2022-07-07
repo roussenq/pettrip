@@ -31,7 +31,8 @@ public class SwaggerConfig {
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
                 .title("Pet Trip API.")
-                .description("Projeto de busca refinada de hotéis de pet.")
+                .description("API para busca filtrada de hotéis de pet desenvolvida para a conclusão " +
+                        "do curso superior em Análise e Desenvolvimento de Sistemas.")
                 .version("1.0.0")
                 .build();
     }

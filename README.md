@@ -5,6 +5,8 @@ Com o intuito de agregar valor ao mercado Pet, o objetivo do site Pet Trip é fa
 
 :rocket: [Pet Trip](https://pettrip-tcs.netlify.app/)
 
+:rocket: [Swagger Pet Trip](https://pettrip-tcs.herokuapp.com/swagger-ui/index.html#/)
+
 :technologist: Desenvolvedora Frontend: [Kamilla C. Faust](https://github.com/kamillafaust)
 
 :man_technologist: Desenvolvedor Backend: [Jhony Vill da Silva](https://github.com/jhonyvill)
