@@ -1,5 +1,8 @@
 package com.project.pettrip.api.dto;
 
+/**
+ * DTO de Filters.
+ */
 public class FilterDTO {
 
     private String type;

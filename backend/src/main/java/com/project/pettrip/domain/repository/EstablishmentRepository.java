@@ -7,9 +7,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+
 @Repository
 public interface EstablishmentRepository extends JpaRepository<Establishment, Long>, JpaSpecificationExecutor<Establishment> {
 
+    /**
+     * Realiza a busca de estabelecimento pelo CNPJ informado.
+     *
+     * @param cnpj cnpj.
+     * @return um Optional de Establishment.
+     */
     Optional<Establishment> findByCnpj(String cnpj);
 
 }

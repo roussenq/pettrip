@@ -1,5 +1,8 @@
 package com.project.pettrip.api.dto;
 
+/**
+ * DTO de Address com as informações para cadastrar endereço.
+ */
 public class AddressInputDTO {
 
     private String street;

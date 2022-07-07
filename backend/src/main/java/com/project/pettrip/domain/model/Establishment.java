@@ -73,7 +73,7 @@ public class Establishment {
         return cnpj;
     }
     public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+        this.cnpj = cnpj.replaceAll("[./-]", "").trim();;
     }
     public String getName() {
         return name;

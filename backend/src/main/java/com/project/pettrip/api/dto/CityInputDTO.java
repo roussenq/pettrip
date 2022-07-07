@@ -1,5 +1,8 @@
 package com.project.pettrip.api.dto;
 
+/**
+ * DTO de City com as informações para cadastrar cidade.
+ */
 public class CityInputDTO {
 
     private String city;

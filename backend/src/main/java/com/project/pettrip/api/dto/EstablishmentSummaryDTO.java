@@ -1,5 +1,8 @@
 package com.project.pettrip.api.dto;
 
+/**
+ * DTO de Establishment.
+ */
 public class EstablishmentSummaryDTO {
 
     private Long id;

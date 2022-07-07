@@ -11,10 +11,4 @@ class PettripApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
-	@Test
-	void main() {
-		PettripApplication.main(new String[] {});
-	}
-
 }

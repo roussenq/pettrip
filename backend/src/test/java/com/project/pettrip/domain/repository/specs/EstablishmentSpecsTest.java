@@ -1,11 +1,14 @@
 package com.project.pettrip.domain.repository.specs;
 
 import com.project.pettrip.api.dto.EstablishmentInputDTO;
-import com.project.pettrip.domain.model.*;
+import com.project.pettrip.domain.model.Establishment;
+import com.project.pettrip.domain.model.FiltersEnum;
 import com.project.pettrip.domain.repository.EstablishmentRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.domain.Page;
@@ -34,7 +37,7 @@ class EstablishmentSpecsTest {
     public void findBySpecificationTest(){
 
         PageRequest pageRequest = PageRequest.of(0, 6);
-        EstablishmentInputDTO dto = createSearchFilter();
+        EstablishmentInputDTO dto = createSearchFilters();
 
         Page<Establishment> resultPage = establishmentRepository.findAll(EstablishmentSpecs.toSpec(dto), pageRequest);
 
@@ -45,12 +48,59 @@ class EstablishmentSpecsTest {
         assertThat(StringUtils.hasText(dto.getCastrated())).isTrue();
         assertThat(StringUtils.hasText(dto.getGender())).isTrue();
     }
-    private EstablishmentInputDTO createSearchFilter() {
-        return new EstablishmentInputDTO(1L,
-                FiltersEnum.DOG.name(),
-                FiltersEnum.TINY.name(),
-                FiltersEnum.CASTRATED.name(),
-                FiltersEnum.MALE.name());
+
+//    @Test
+//    @DisplayName("Deve verificar que não há texto no filtros.")
+//    public void findBySpecificationWithoutTextTest(){
+//
+//        PageRequest pageRequest = PageRequest.of(0, 6);
+//        EstablishmentInputDTO dto = createSearchWithoutFilter();
+//
+//        establishmentRepository.findAll(EstablishmentSpecs.toSpec(Mockito.any()), pageRequest);
+//
+//        assertThat(StringUtils.hasText(dto.getCityId().toString())).isFalse();
+//        assertThat(StringUtils.hasText(dto.getType())).isFalse();
+//        assertThat(StringUtils.hasText(dto.getWeight())).isFalse();
+//        assertThat(StringUtils.hasText(dto.getCastrated())).isFalse();
+//        assertThat(StringUtils.hasText(dto.getGender())).isFalse();
+//    }
+
+    private EstablishmentInputDTO createSearchWithoutFilter() {
+        return new EstablishmentInputDTO();
+    }
+
+
+    @Test
+    @DisplayName("Deve retornar uma exception quando informados filtros inválidos")
+    public void throwExceptionWhenFindBySpecificationTest(){
+
+        PageRequest pageRequest = PageRequest.of(0, 6);
+        EstablishmentInputDTO dto = createSearchFilterWithError();
+
+        Throwable exception = Assertions.catchThrowable(() -> establishmentRepository.findAll(EstablishmentSpecs.toSpec(dto), pageRequest));
+
+        Assertions.assertThat(exception).isInstanceOf(RuntimeException.class);
+    }
+
+
+    private EstablishmentInputDTO createSearchFilters() {
+        EstablishmentInputDTO establishmentInputDTO = new EstablishmentInputDTO();
+        establishmentInputDTO.setCityId(1L);
+        establishmentInputDTO.setType("dog");
+        establishmentInputDTO.setWeight("tiny");
+        establishmentInputDTO.setCastrated("castrated");
+        establishmentInputDTO.setGender("male");
+        return establishmentInputDTO;
+    }
+
+    private EstablishmentInputDTO createSearchFilterWithError() {
+        EstablishmentInputDTO establishmentInputDTO = new EstablishmentInputDTO();
+        establishmentInputDTO.setCityId(1L);
+        establishmentInputDTO.setType("dogg");
+        establishmentInputDTO.setWeight(FiltersEnum.TINY.getValue());
+        establishmentInputDTO.setCastrated(FiltersEnum.CASTRATED.getValue());
+        establishmentInputDTO.setGender(FiltersEnum.MALE.getValue());
+        return establishmentInputDTO;
     }
 
 }

@@ -1,5 +1,8 @@
 package com.project.pettrip.api.dto;
 
+/**
+ * DTO de City com cidade e estado concatenados,.
+ */
 public class CitySummaryDTO {
 
     private final Long id;
