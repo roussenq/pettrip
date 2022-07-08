@@ -7,6 +7,8 @@ Com o intuito de agregar valor ao mercado Pet, o objetivo do site Pet Trip é fa
 
 :rocket: [Swagger Pet Trip](https://pettrip-tcs.herokuapp.com/swagger-ui/index.html#/)
 
+:memo: [Trabalho acadêmico](https://github.com/jhonyvill/tcs_pettrip_escrito/blob/main/TCS%20-%20Trabalho%20de%20Conclus%C3%A3o%20de%20Semestre%20-%20Senac%20-%20Jhony%20Vill%20da%20Silva%20e%20Kamilla%20Cionete%20Faust..pdf)
+
 :technologist: Desenvolvedora Frontend: [Kamilla C. Faust](https://github.com/kamillafaust)
 
 :man_technologist: Desenvolvedor Backend: [Jhony Vill da Silva](https://github.com/jhonyvill)
