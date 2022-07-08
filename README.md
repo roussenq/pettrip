@@ -10,7 +10,10 @@ Com o intuito de agregar valor ao mercado Pet, o objetivo do site Pet Trip é fa
 :technologist: Desenvolvedora Frontend: [Kamilla C. Faust](https://github.com/kamillafaust)
 
 :man_technologist: Desenvolvedor Backend: [Jhony Vill da Silva](https://github.com/jhonyvill)
+ 
+:man_teacher: Professor orientador: [Wender Cris de Souza Firmino](https://www.linkedin.com/in/wendersf/)
 
+:teacher: Professora orientadora: [Taisa Rossafa da Fonseca](https://www.linkedin.com/in/taisa-rossafa-da-fonseca-5b16272a/)
 
 
 <h3> :bulb: Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: </h3>
